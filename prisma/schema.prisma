@@ -10,3 +10,59 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+model UnitProgress {
+  id              Int      @id @default(autoincrement())
+  unitId          Int      @unique
+  lessonsComplete Boolean  @default(false)
+  quizBestScore   Int      @default(0)
+  quizAttempts    Int      @default(0)
+  codeLabsDone    Int      @default(0)
+  frqsDone        Int      @default(0)
+  lastAccessed    DateTime @default(now())
+  xpEarned        Int      @default(0)
+}
+
+model QuizAttempt {
+  id        Int      @id @default(autoincrement())
+  unitId    Int
+  score     Int
+  total     Int
+  answers   String   // JSON string of answers
+  createdAt DateTime @default(now())
+}
+
+model CodeSubmission {
+  id         Int      @id @default(autoincrement())
+  unitId     Int
+  exerciseId String
+  code       String
+  passed     Boolean
+  output     String?
+  createdAt  DateTime @default(now())
+}
+
+model FRQAttempt {
+  id        Int      @id @default(autoincrement())
+  unitId    Int
+  frqId     String
+  code      String
+  score     Int
+  maxScore  Int
+  createdAt DateTime @default(now())
+}
+
+model DailyActivity {
+  id             Int      @id @default(autoincrement())
+  date           String   @unique // YYYY-MM-DD
+  xpEarned       Int      @default(0)
+  questionsAnswered Int   @default(0)
+  minutesStudied Int      @default(0)
+}
+
+model Achievement {
+  id         Int      @id @default(autoincrement())
+  key        String   @unique
+  title      String
+  unlockedAt DateTime @default(now())
+}

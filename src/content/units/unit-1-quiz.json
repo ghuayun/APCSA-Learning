@@ -1,0 +1,147 @@
+[
+  {
+    "id": "u1q1",
+    "question": "What is the output of the following code?\n```java\nint x = 10;\nint y = 3;\nSystem.out.println(x / y);\n```",
+    "options": ["3", "3.33", "3.0", "Error"],
+    "correct": 0,
+    "explanation": "Integer division in Java truncates the decimal part. Since both x and y are ints, 10 / 3 evaluates to 3 (not 3.33).",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u1q2",
+    "question": "Which of the following correctly declares and initializes a variable to store a student's GPA?",
+    "options": [
+      "int gpa = 3.75;",
+      "double gpa = 3.75;",
+      "boolean gpa = 3.75;",
+      "double gpa = \"3.75\";"
+    ],
+    "correct": 1,
+    "explanation": "A GPA like 3.75 has a decimal, so it needs to be stored as a double. Option A would cause a compilation error because you can't store a decimal value in an int without casting. Option C is wrong because boolean only holds true/false. Option D is wrong because \"3.75\" is a String, not a number.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u1q3",
+    "question": "What is the output of the following code?\n```java\nSystem.out.println(17 % 5);\n```",
+    "options": ["3", "3.4", "2", "5"],
+    "correct": 2,
+    "explanation": "The % (modulo) operator returns the remainder of division. 17 divided by 5 is 3 with a remainder of 2. So 17 % 5 = 2.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u1q4",
+    "question": "What is the value of `result` after the following code executes?\n```java\nint result = 5 + 3 * 2;\n```",
+    "options": ["16", "11", "10", "13"],
+    "correct": 1,
+    "explanation": "Java follows standard math order of operations (PEMDAS). Multiplication happens before addition: 3 * 2 = 6, then 5 + 6 = 11.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u1q5",
+    "question": "What is the output of the following code?\n```java\nboolean isRaining = false;\nboolean hasUmbrella = true;\nSystem.out.println(isRaining);\nSystem.out.println(hasUmbrella);\n```",
+    "options": [
+      "0\n1",
+      "false\ntrue",
+      "False\nTrue",
+      "Error"
+    ],
+    "correct": 1,
+    "explanation": "In Java, boolean values print as the lowercase words \"false\" and \"true\". Unlike some other languages, Java does not use 0 and 1 for booleans.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u1q6",
+    "question": "What is the output of the following code?\n```java\ndouble a = 7 / 2;\nSystem.out.println(a);\n```",
+    "options": ["3.5", "3.0", "3", "Error"],
+    "correct": 1,
+    "explanation": "Even though `a` is a double, the expression 7 / 2 is evaluated first using integer division (both 7 and 2 are ints), giving 3. That integer 3 is then stored into the double variable as 3.0. To get 3.5, you'd need to write 7.0 / 2 or (double) 7 / 2.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u1q7",
+    "question": "What is the output of the following code?\n```java\nint score = 100;\nscore += 15;\nscore -= 5;\nscore *= 2;\nSystem.out.println(score);\n```",
+    "options": ["220", "210", "230", "200"],
+    "correct": 0,
+    "explanation": "Trace through step by step: score starts at 100. After += 15, score is 115. After -= 5, score is 110. After *= 2, score is 220.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u1q8",
+    "question": "What is the output of the following code?\n```java\nint num = (int) 9.99;\nSystem.out.println(num);\n```",
+    "options": ["10", "9", "9.99", "Error"],
+    "correct": 1,
+    "explanation": "Casting a double to an int truncates (chops off) the decimal — it does NOT round. So (int) 9.99 becomes 9, not 10.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u1q9",
+    "question": "Which line of code will cause a compilation error?",
+    "options": [
+      "double x = 5;",
+      "int y = 5.0;",
+      "int z = (int) 5.0;",
+      "double w = 5 / 2;"
+    ],
+    "correct": 1,
+    "explanation": "You cannot assign a double value (5.0) to an int variable without an explicit cast — Java won't automatically narrow a double to an int because it could lose data. Option A works because widening (int to double) is automatic. Option C works because the explicit cast handles the narrowing. Option D works because 5 / 2 is integer division (result is 2), which is then widened to 2.0.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u1q10",
+    "question": "What is the output of the following code?\n```java\nint a = 5;\nint b = a;\na = 10;\nSystem.out.println(b);\n```",
+    "options": ["10", "5", "15", "Error"],
+    "correct": 1,
+    "explanation": "When you write int b = a, Java copies the current value of a (which is 5) into b. After that, a and b are independent. Changing a to 10 does NOT affect b. So b is still 5.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u1q11",
+    "question": "What is the output of the following code?\n```java\nint hours = 150;\nint days = hours / 24;\nint remaining = hours % 24;\nSystem.out.println(days + \" days and \" + remaining + \" hours\");\n```",
+    "options": [
+      "6 days and 6 hours",
+      "6.25 days and 6 hours",
+      "6 days and 0.25 hours",
+      "Error"
+    ],
+    "correct": 0,
+    "explanation": "150 / 24 = 6 (integer division truncates). 150 % 24 = 6 (the remainder after dividing 150 by 24). So the output is \"6 days and 6 hours\".",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u1q12",
+    "question": "What is the output of the following code?\n```java\ndouble price = 19.99;\nint discount = 20;\ndouble finalPrice = price - price * discount / 100;\nSystem.out.println(finalPrice);\n```",
+    "options": ["15.992", "15.992000000000001", "15.99", "16.0"],
+    "correct": 1,
+    "explanation": "When an int and a double are mixed in arithmetic, Java promotes the int to a double. So price * discount / 100 = 19.99 * 20 / 100 = 399.8 / 100 = 3.998. Then 19.99 - 3.998 = 15.992. However, due to floating-point precision limitations, the actual stored result is 15.992000000000001. This is a common gotcha with doubles!",
+    "difficulty": "hard"
+  },
+  {
+    "id": "u1q13",
+    "question": "Consider the following code. What value does `result` hold?\n```java\nint a = 2;\nint b = 3;\nint c = 4;\nint result = a + b * c - a % b;\n```",
+    "options": ["12", "16", "14", "18"],
+    "correct": 0,
+    "explanation": "Follow order of operations. First: b * c = 3 * 4 = 12. Then: a % b = 2 % 3 = 2 (2 divided by 3 is 0 remainder 2). Now left to right: a + 12 - 2 = 2 + 12 - 2 = 12.",
+    "difficulty": "hard"
+  },
+  {
+    "id": "u1q14",
+    "question": "What is wrong with the following code?\n```java\nint x = 5;\nif (x = 10) {\n    System.out.println(\"x is 10\");\n}\n```",
+    "options": [
+      "Nothing is wrong; it prints \"x is 10\"",
+      "The variable x should be a double",
+      "The condition uses = (assignment) instead of == (equality comparison)",
+      "The if statement is missing curly braces"
+    ],
+    "correct": 2,
+    "explanation": "The single = is the assignment operator, not the equality operator ==. In Java, the expression x = 10 assigns 10 to x and returns an int, but if statements require a boolean condition. This code won't compile because an int can't be used as a boolean in Java.",
+    "difficulty": "hard"
+  },
+  {
+    "id": "u1q15",
+    "question": "What is the output of the following code?\n```java\nint x = Integer.MAX_VALUE;\nx = x + 1;\nSystem.out.println(x < 0);\n```",
+    "options": ["true", "false", "Error", "2147483648"],
+    "correct": 0,
+    "explanation": "Integer.MAX_VALUE is 2,147,483,647, the largest value an int can hold. Adding 1 causes integer overflow, which wraps around to Integer.MIN_VALUE (-2,147,483,648). Since that value is negative, x < 0 evaluates to true. Java does not throw an error for integer overflow — it silently wraps around.",
+    "difficulty": "hard"
+  }
+]

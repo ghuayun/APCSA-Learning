@@ -1,0 +1,72 @@
+[
+  {
+    "id": "u1e1",
+    "title": "Temperature Converter",
+    "description": "Write a program that converts a temperature from Fahrenheit to Celsius.\n\nThe formula is: C = (F - 32) × 5.0 / 9.0\n\nGiven `fahrenheit = 98.6`, calculate and print the Celsius equivalent.",
+    "starterCode": "public class Main {\n    public static void main(String[] args) {\n        double fahrenheit = 98.6;\n        // Your code here\n    }\n}",
+    "expectedOutput": "37.0",
+    "hints": [
+      "Remember to use 5.0 instead of 5 to avoid integer division",
+      "Store the result in a double variable, then print it",
+      "double celsius = (fahrenheit - 32) * 5.0 / 9.0;"
+    ],
+    "solution": "public class Main {\n    public static void main(String[] args) {\n        double fahrenheit = 98.6;\n        double celsius = (fahrenheit - 32) * 5.0 / 9.0;\n        System.out.println(celsius);\n    }\n}",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u1e2",
+    "title": "Area of a Triangle",
+    "description": "Write a program that calculates the area of a triangle.\n\nThe formula is: area = (base × height) / 2.0\n\nGiven `base = 13` and `height = 7`, calculate and print the area. Make sure you get a decimal result!",
+    "starterCode": "public class Main {\n    public static void main(String[] args) {\n        int base = 13;\n        int height = 7;\n        // Your code here\n    }\n}",
+    "expectedOutput": "45.5",
+    "hints": [
+      "If you divide two ints, you get integer division — the decimal is lost!",
+      "Use 2.0 instead of 2 in your division, or cast one of the values to double",
+      "double area = (base * height) / 2.0;"
+    ],
+    "solution": "public class Main {\n    public static void main(String[] args) {\n        int base = 13;\n        int height = 7;\n        double area = (base * height) / 2.0;\n        System.out.println(area);\n    }\n}",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u1e3",
+    "title": "Tip Calculator",
+    "description": "You went out to eat and your bill is $84.60. You want to leave an 18% tip.\n\nWrite a program that:\n1. Calculates the tip amount\n2. Calculates the total bill (original + tip)\n3. Splits the total evenly between 3 friends\n4. Prints all three values on separate lines\n\nUse the variables provided. Round nothing — just let Java do its thing.",
+    "starterCode": "public class Main {\n    public static void main(String[] args) {\n        double bill = 84.60;\n        double tipPercent = 18.0;\n        int friends = 3;\n        // Your code here\n    }\n}",
+    "expectedOutput": "15.228\n99.828\n33.276",
+    "hints": [
+      "To calculate the tip: bill * tipPercent / 100",
+      "Total is bill + tip. Per person is total / friends.",
+      "When you divide a double by an int, Java automatically promotes the int to a double, so you'll get a decimal result."
+    ],
+    "solution": "public class Main {\n    public static void main(String[] args) {\n        double bill = 84.60;\n        double tipPercent = 18.0;\n        int friends = 3;\n        double tip = bill * tipPercent / 100;\n        double total = bill + tip;\n        double perPerson = total / friends;\n        System.out.println(tip);\n        System.out.println(total);\n        System.out.println(perPerson);\n    }\n}",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u1e4",
+    "title": "Digit Extractor",
+    "description": "Write a program that takes a 4-digit integer and prints each digit on a separate line, from left to right.\n\nGiven `number = 4927`, your output should be:\n4\n9\n2\n7\n\n**Challenge:** You can ONLY use integer division (/) and modulo (%). Do NOT convert to a String!",
+    "starterCode": "public class Main {\n    public static void main(String[] args) {\n        int number = 4927;\n        // Your code here\n        // Hint: 4927 / 1000 gives you the first digit...\n    }\n}",
+    "expectedOutput": "4\n9\n2\n7",
+    "hints": [
+      "To get the thousands digit: number / 1000",
+      "To get the hundreds digit: (number / 100) % 10 — dividing by 100 shifts it over, then % 10 grabs just that digit",
+      "Tens digit: (number / 10) % 10. Ones digit: number % 10"
+    ],
+    "solution": "public class Main {\n    public static void main(String[] args) {\n        int number = 4927;\n        int thousands = number / 1000;\n        int hundreds = (number / 100) % 10;\n        int tens = (number / 10) % 10;\n        int ones = number % 10;\n        System.out.println(thousands);\n        System.out.println(hundreds);\n        System.out.println(tens);\n        System.out.println(ones);\n    }\n}",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u1e5",
+    "title": "The Swap Challenge",
+    "description": "You have two integer variables, `a` and `b`. Swap their values so that `a` holds the original value of `b`, and `b` holds the original value of `a`.\n\n**Rules:**\n- You CANNOT just write `a = 7; b = 3;` — that's cheating!\n- You need to figure out the logic to swap ANY two values.\n- You'll need a third variable to help.\n\nAfter swapping, print both values to verify.\n\n**Bonus challenge (hard):** Can you swap them WITHOUT using a third variable? (Hint: use addition and subtraction.)",
+    "starterCode": "public class Main {\n    public static void main(String[] args) {\n        int a = 3;\n        int b = 7;\n        // Swap the values of a and b\n        // Your code here\n\n        System.out.println(\"a = \" + a);\n        System.out.println(\"b = \" + b);\n    }\n}",
+    "expectedOutput": "a = 7\nb = 3",
+    "hints": [
+      "Think of it like swapping the contents of two cups — you need a third empty cup to hold one while you pour.",
+      "Create a temporary variable: int temp = a; then set a = b; then set b = temp;",
+      "Bonus (no temp variable): a = a + b; then b = a - b; then a = a - b; Think about why this works!"
+    ],
+    "solution": "public class Main {\n    public static void main(String[] args) {\n        int a = 3;\n        int b = 7;\n        int temp = a;\n        a = b;\n        b = temp;\n        System.out.println(\"a = \" + a);\n        System.out.println(\"b = \" + b);\n    }\n}",
+    "difficulty": "hard"
+  }
+]
