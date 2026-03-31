@@ -1,0 +1,147 @@
+[
+  {
+    "id": "u10q1",
+    "question": "Which of the following best describes recursion in Java?",
+    "options": [
+      "A loop that repeats a fixed number of times",
+      "A method that calls itself to solve smaller versions of a problem",
+      "A way to create multiple objects from a class",
+      "A method that takes an array as a parameter"
+    ],
+    "correct": 1,
+    "explanation": "Recursion is when a method calls itself. Each call works on a smaller version of the original problem until it reaches a base case that stops the recursion. Think of it like those Russian nesting dolls — each doll opens to reveal a smaller version of itself.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u10q2",
+    "question": "What is the role of a base case in a recursive method?",
+    "options": [
+      "It makes the method run faster",
+      "It calls the method again with a bigger input",
+      "It provides the stopping condition so the recursion doesn't continue forever",
+      "It converts the recursion into a loop"
+    ],
+    "correct": 2,
+    "explanation": "The base case is the condition that stops the recursion. Without it, the method would keep calling itself forever (until you get a StackOverflowError). Think of it as the emergency brake on a roller coaster — you NEED it to stop!",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u10q3",
+    "question": "What happens if a recursive method is missing its base case?",
+    "options": [
+      "The method returns 0",
+      "The method runs once and stops",
+      "A StackOverflowError occurs",
+      "The program compiles but produces no output"
+    ],
+    "correct": 2,
+    "explanation": "Without a base case, the method calls itself infinitely. Each call adds a new frame to the call stack, and when the stack runs out of memory, Java throws a StackOverflowError. It's like an infinite loop, but worse because it eats up memory too.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u10q4",
+    "question": "What does the following method return when called as `factorial(4)`?\n```java\npublic static int factorial(int n) {\n    if (n == 0) return 1;\n    return n * factorial(n - 1);\n}\n```",
+    "options": ["12", "4", "24", "16"],
+    "correct": 2,
+    "explanation": "Trace it step by step: factorial(4) = 4 × factorial(3) = 4 × 3 × factorial(2) = 4 × 3 × 2 × factorial(1) = 4 × 3 × 2 × 1 × factorial(0) = 4 × 3 × 2 × 1 × 1 = 24.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u10q5",
+    "question": "In the following method, which line is the base case?\n```java\npublic static int mystery(int n) {\n    if (n <= 1) return 1;\n    return n + mystery(n - 1);\n}\n```",
+    "options": [
+      "return n + mystery(n - 1);",
+      "if (n <= 1) return 1;",
+      "public static int mystery(int n)",
+      "return n;"
+    ],
+    "correct": 1,
+    "explanation": "The base case is `if (n <= 1) return 1;` because it returns a value directly WITHOUT making another recursive call. The recursive case is the other return statement, which calls mystery again. The base case is what eventually stops the chain of calls.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u10q6",
+    "question": "How many total method calls are made when computing `factorial(5)` using this method?\n```java\npublic static int factorial(int n) {\n    if (n == 0) return 1;\n    return n * factorial(n - 1);\n}\n```",
+    "options": ["5", "6", "4", "7"],
+    "correct": 1,
+    "explanation": "The calls are: factorial(5), factorial(4), factorial(3), factorial(2), factorial(1), and factorial(0). That's 6 total calls. Don't forget to count the base case call factorial(0) — it still gets called, it just doesn't recurse further!",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u10q7",
+    "question": "What does `fib(6)` return?\n```java\npublic static int fib(int n) {\n    if (n <= 1) return n;\n    return fib(n - 1) + fib(n - 2);\n}\n```",
+    "options": ["6", "13", "8", "5"],
+    "correct": 2,
+    "explanation": "The Fibonacci sequence: fib(0)=0, fib(1)=1, fib(2)=1, fib(3)=2, fib(4)=3, fib(5)=5, fib(6)=8. Each value is the sum of the two before it: fib(6) = fib(5) + fib(4) = 5 + 3 = 8.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u10q8",
+    "question": "What does `reverse(\"CODE\")` return?\n```java\npublic static String reverse(String s) {\n    if (s.length() <= 1) return s;\n    return reverse(s.substring(1)) + s.charAt(0);\n}\n```",
+    "options": ["\"CODE\"", "\"EDOC\"", "\"ODEC\"", "\"DCOE\""],
+    "correct": 1,
+    "explanation": "Trace: reverse(\"CODE\") = reverse(\"ODE\") + 'C' = (reverse(\"DE\") + 'O') + 'C' = ((reverse(\"E\") + 'D') + 'O') + 'C' = \"E\" + \"D\" + \"O\" + \"C\" = \"EDOC\". Each call peels off the first character and sticks it at the end.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u10q9",
+    "question": "What does `sum(new int[]{3, 7, 2, 5}, 0)` return?\n```java\npublic static int sum(int[] arr, int index) {\n    if (index == arr.length) return 0;\n    return arr[index] + sum(arr, index + 1);\n}\n```",
+    "options": ["17", "15", "12", "10"],
+    "correct": 0,
+    "explanation": "The method recursively sums all elements: sum starts at index 0: 3 + sum(arr, 1) = 3 + 7 + sum(arr, 2) = 3 + 7 + 2 + sum(arr, 3) = 3 + 7 + 2 + 5 + sum(arr, 4) = 3 + 7 + 2 + 5 + 0 = 17. When index equals the array length, it returns 0 (base case).",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u10q10",
+    "question": "Which of the following statements about recursion vs iteration is TRUE?",
+    "options": [
+      "Recursive solutions are always faster than iterative ones",
+      "Every recursive solution can be rewritten using loops",
+      "Recursion never uses more memory than iteration",
+      "Iterative solutions cannot solve the same problems as recursive ones"
+    ],
+    "correct": 1,
+    "explanation": "Every recursive solution can be converted to an iterative one (and vice versa). However, recursion often uses MORE memory due to the call stack, and isn't always faster — naive recursive Fibonacci is way slower than iterative. Some problems are just more naturally expressed with recursion (like tree traversals).",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u10q11",
+    "question": "What does `count(\"banana\", 'a')` return?\n```java\npublic static int count(String s, char target) {\n    if (s.length() == 0) return 0;\n    int rest = count(s.substring(1), target);\n    if (s.charAt(0) == target) return 1 + rest;\n    return rest;\n}\n```",
+    "options": ["2", "3", "4", "1"],
+    "correct": 1,
+    "explanation": "The method counts how many times the target character appears in the string. 'banana' contains 'a' three times (at positions 1, 3, and 5). Each recursive call checks the first character and counts it if it matches, then recurses on the rest of the string.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u10q12",
+    "question": "How many total method calls are made when computing `fib(5)` using this method?\n```java\npublic static int fib(int n) {\n    if (n <= 1) return n;\n    return fib(n - 1) + fib(n - 2);\n}\n```",
+    "options": ["9", "11", "15", "25"],
+    "correct": 2,
+    "explanation": "Unlike factorial (which is linear), Fibonacci branches into a tree of calls. Count them: fib(5) calls fib(4)+fib(3). fib(4) calls fib(3)+fib(2). Each fib(3) calls fib(2)+fib(1). Each fib(2) calls fib(1)+fib(0). Total calls: T(0)=1, T(1)=1, T(2)=3, T(3)=5, T(4)=9, T(5)=15. This exponential growth is why naive recursive Fibonacci is so slow!",
+    "difficulty": "hard"
+  },
+  {
+    "id": "u10q13",
+    "question": "What does `mystery(4821)` return?\n```java\npublic static int mystery(int n) {\n    if (n < 10) return n;\n    return mystery(n / 10) + n % 10;\n}\n```",
+    "options": ["15", "48", "4", "21"],
+    "correct": 0,
+    "explanation": "Trace: mystery(4821) = mystery(482) + 1 = (mystery(48) + 2) + 1 = ((mystery(4) + 8) + 2) + 1 = ((4) + 8) + 2 + 1 = 15. The method sums all the digits of the number! Each step peels off the last digit (n % 10) and recurses on the remaining digits (n / 10).",
+    "difficulty": "hard"
+  },
+  {
+    "id": "u10q14",
+    "question": "How many comparisons with the target are made when calling `binarySearch(arr, 23, 0, 9)` where `arr = {2, 5, 8, 12, 16, 23, 38, 56, 72, 91}`?\n```java\npublic static int binarySearch(int[] arr, int target, int low, int high) {\n    if (low > high) return -1;\n    int mid = (low + high) / 2;\n    if (arr[mid] == target) return mid;\n    else if (arr[mid] < target)\n        return binarySearch(arr, target, mid + 1, high);\n    else\n        return binarySearch(arr, target, low, mid - 1);\n}\n```",
+    "options": ["2", "3", "4", "5"],
+    "correct": 1,
+    "explanation": "Trace: 1st call: low=0, high=9, mid=4, arr[4]=16 — 16 < 23, go right. 2nd call: low=5, high=9, mid=7, arr[7]=56 — 56 > 23, go left. 3rd call: low=5, high=6, mid=5, arr[5]=23 — found! Three comparisons total. Binary search is efficient because it eliminates half the remaining elements each time.",
+    "difficulty": "hard"
+  },
+  {
+    "id": "u10q15",
+    "question": "Which input causes `isPalindrome` to make the MOST recursive calls before returning?\n```java\npublic static boolean isPalindrome(String s) {\n    if (s.length() <= 1) return true;\n    if (s.charAt(0) != s.charAt(s.length() - 1)) return false;\n    return isPalindrome(s.substring(1, s.length() - 1));\n}\n```",
+    "options": ["\"racecar\"", "\"hello\"", "\"abcba\"", "\"noon\""],
+    "correct": 0,
+    "explanation": "\"racecar\" makes 4 calls: r=r ✓ (recurse on \"aceca\"), a=a ✓ (recurse on \"cec\"), c=c ✓ (recurse on \"e\"), then \"e\" has length 1 → base case returns true. \"hello\" fails immediately: h≠o → returns false in just 1 call. \"abcba\" makes 3 calls. \"noon\" makes 3 calls. The longer the palindrome, the deeper the recursion goes!",
+    "difficulty": "hard"
+  }
+]

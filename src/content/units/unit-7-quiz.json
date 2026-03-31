@@ -1,0 +1,152 @@
+[
+  {
+    "id": "u7q1",
+    "question": "Which of the following correctly creates an ArrayList of Strings?",
+    "options": [
+      "ArrayList<String> list = new ArrayList<String>();",
+      "ArrayList list = new ArrayList<String>();",
+      "ArrayList<string> list = new ArrayList<>();",
+      "List<String> list = new List<String>();"
+    ],
+    "correct": 0,
+    "explanation": "The correct syntax uses generics: `ArrayList<String> list = new ArrayList<String>();`. The type in angle brackets specifies what the list can hold. Note: `ArrayList<>()` (diamond operator) also works, but option A is the most explicit and correct form. Option C fails because `string` must be capitalized. Option D fails because `List` is an interface and can't be instantiated directly.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u7q2",
+    "question": "What method do you use to find how many elements are in an ArrayList?",
+    "options": [
+      ".length",
+      ".length()",
+      ".size()",
+      ".count()"
+    ],
+    "correct": 2,
+    "explanation": "ArrayList uses `.size()` (a method with parentheses) to get the number of elements. This is different from arrays, which use `.length` (a property, no parentheses). It's a common source of confusion — arrays and ArrayLists look similar but use different syntax!",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u7q3",
+    "question": "What is the output of the following code?\n```java\nArrayList<String> fruits = new ArrayList<String>();\nfruits.add(\"Apple\");\nfruits.add(\"Banana\");\nfruits.add(\"Cherry\");\nSystem.out.println(fruits.get(1));\n```",
+    "options": ["Apple", "Banana", "Cherry", "Error"],
+    "correct": 1,
+    "explanation": "Just like arrays, ArrayList uses zero-based indexing. `fruits.get(0)` is \"Apple\", `fruits.get(1)` is \"Banana\", and `fruits.get(2)` is \"Cherry\". The `get()` method retrieves the element at the specified index.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u7q4",
+    "question": "Why can't you write `ArrayList<int>` in Java?",
+    "options": [
+      "int is not a valid type in Java",
+      "ArrayLists can only hold Strings",
+      "ArrayLists require wrapper classes (like Integer) — they can't store primitive types",
+      "You need to use double instead of int"
+    ],
+    "correct": 2,
+    "explanation": "ArrayLists can only hold objects, not primitives. Since `int` is a primitive type, you must use its wrapper class `Integer` instead: `ArrayList<Integer>`. Similarly, use `Double` for double and `Boolean` for boolean. Java's autoboxing feature automatically converts between `int` and `Integer`.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u7q5",
+    "question": "What is the output of the following code?\n```java\nArrayList<Integer> nums = new ArrayList<Integer>();\nnums.add(10);\nnums.add(20);\nnums.add(30);\nnums.set(1, 99);\nSystem.out.println(nums);\n```",
+    "options": ["[10, 20, 30]", "[10, 99, 30]", "[99, 20, 30]", "[10, 20, 99]"],
+    "correct": 1,
+    "explanation": "The `set(index, value)` method replaces the element at the given index. `nums.set(1, 99)` replaces the element at index 1 (which was 20) with 99. The ArrayList becomes [10, 99, 30]. Unlike `add()`, `set()` doesn't increase the size — it overwrites.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u7q6",
+    "question": "What is the output of the following code?\n```java\nArrayList<String> names = new ArrayList<String>();\nnames.add(\"Alex\");\nnames.add(\"Blake\");\nnames.add(\"Casey\");\nnames.remove(1);\nSystem.out.println(names.size() + \" \" + names.get(1));\n```",
+    "options": ["3 Blake", "2 Casey", "2 Blake", "3 Casey"],
+    "correct": 1,
+    "explanation": "After adding 3 elements, `remove(1)` removes \"Blake\" at index 1. \"Casey\" shifts down from index 2 to index 1. The size drops from 3 to 2. So `names.size()` is 2 and `names.get(1)` is \"Casey\". Important: when you remove an element, everything after it shifts left!",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u7q7",
+    "question": "What is the output of the following code?\n```java\nArrayList<Integer> nums = new ArrayList<Integer>();\nnums.add(5);\nnums.add(10);\nnums.add(15);\nnums.add(1, 7);\nSystem.out.println(nums);\n```",
+    "options": ["[5, 10, 7, 15]", "[5, 7, 10, 15]", "[7, 5, 10, 15]", "[5, 10, 15, 7]"],
+    "correct": 1,
+    "explanation": "The two-argument `add(index, value)` inserts an element at the specified index and shifts existing elements to the right. `add(1, 7)` inserts 7 at index 1, pushing 10 and 15 over. Result: [5, 7, 10, 15]. This is different from `add(value)` which always adds to the end.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u7q8",
+    "question": "What is wrong with the following code?\n```java\nArrayList<String> words = new ArrayList<String>();\nwords.add(\"hello\");\nwords.add(\"world\");\nwords.add(\"java\");\nfor (String w : words) {\n    if (w.equals(\"world\")) {\n        words.remove(w);\n    }\n}\n```",
+    "options": [
+      "Nothing is wrong — it works fine",
+      "You can't use .equals() with Strings",
+      "Removing elements during a for-each loop causes ConcurrentModificationException",
+      "The remove method doesn't accept String arguments"
+    ],
+    "correct": 2,
+    "explanation": "You CANNOT modify an ArrayList (add or remove) while iterating over it with a for-each loop. Java detects this and throws a ConcurrentModificationException. This is the \"remove-while-iterating trap.\" To safely remove, use a regular for loop iterating backwards, or use an Iterator.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u7q9",
+    "question": "Which of the following is a key difference between arrays and ArrayLists?",
+    "options": [
+      "Arrays can hold objects but ArrayLists cannot",
+      "ArrayLists have a fixed size but arrays can grow",
+      "Arrays have a fixed size but ArrayLists can grow and shrink dynamically",
+      "Arrays use .size() and ArrayLists use .length"
+    ],
+    "correct": 2,
+    "explanation": "The biggest difference is that arrays have a fixed size set when they're created, while ArrayLists can grow and shrink as you add and remove elements. Arrays use `.length` (no parentheses), ArrayLists use `.size()`. Arrays can hold primitives directly, ArrayLists need wrapper classes.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u7q10",
+    "question": "What is the output of the following code?\n```java\nArrayList<Integer> nums = new ArrayList<Integer>();\nnums.add(3);\nnums.add(1);\nnums.add(4);\nnums.add(1);\nnums.add(5);\nint sum = 0;\nfor (int n : nums) {\n    sum += n;\n}\nSystem.out.println(sum);\n```",
+    "options": ["14", "13", "15", "10"],
+    "correct": 0,
+    "explanation": "The for-each loop adds each element: 3 + 1 + 4 + 1 + 5 = 14. Notice that autoboxing automatically converts each Integer object to an int when assigned to the variable `n`. This conversion is seamless — you don't need to call any methods.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u7q11",
+    "question": "What is the output of the following code?\n```java\nArrayList<Integer> nums = new ArrayList<Integer>();\nnums.add(10);\nnums.add(20);\nnums.add(30);\nnums.add(20);\nnums.add(10);\nfor (int i = nums.size() - 1; i >= 0; i--) {\n    if (nums.get(i) == 10) {\n        nums.remove(i);\n    }\n}\nSystem.out.println(nums);\n```",
+    "options": ["[20, 30, 20]", "[20, 30, 20, 10]", "[10, 20, 30, 20]", "ConcurrentModificationException"],
+    "correct": 0,
+    "explanation": "Iterating backwards with a regular for loop is a safe way to remove elements. When you remove from the end, it doesn't affect the indices of elements you haven't checked yet. The loop removes both 10s (at indices 4 and 0), leaving [20, 30, 20]. No ConcurrentModificationException because this isn't a for-each loop.",
+    "difficulty": "hard"
+  },
+  {
+    "id": "u7q12",
+    "question": "What is the output of the following code?\n```java\nArrayList<Integer> list = new ArrayList<Integer>();\nlist.add(1);\nlist.add(2);\nlist.add(3);\nlist.remove(1);\nSystem.out.println(list);\n```",
+    "options": ["[2, 3]", "[1, 3]", "[1, 2]", "Error"],
+    "correct": 1,
+    "explanation": "Tricky! When you call `remove(1)` on an ArrayList<Integer>, Java treats 1 as an INDEX, not a value. So it removes the element at index 1 (which is 2), giving [1, 3]. To remove the Integer value 1, you'd need `list.remove(Integer.valueOf(1))`. This int-vs-Integer ambiguity is a classic AP exam trap.",
+    "difficulty": "hard"
+  },
+  {
+    "id": "u7q13",
+    "question": "What is the output of the following code?\n```java\nArrayList<String> a = new ArrayList<String>();\na.add(\"X\");\na.add(\"Y\");\nArrayList<String> b = a;\nb.add(\"Z\");\nSystem.out.println(a.size());\n```",
+    "options": ["2", "3", "1", "Error"],
+    "correct": 1,
+    "explanation": "Just like arrays, ArrayLists are reference types. `ArrayList<String> b = a;` makes b point to the SAME list as a — it doesn't create a copy. Adding \"Z\" through b also adds it to a (same list!). So `a.size()` returns 3. To make a real copy, use `new ArrayList<String>(a)`.",
+    "difficulty": "hard"
+  },
+  {
+    "id": "u7q14",
+    "question": "What does the following method return when called with the list [1, 2, 3, 2, 4, 2, 5]?\n```java\npublic static ArrayList<Integer> removeAll(ArrayList<Integer> list, int val) {\n    ArrayList<Integer> result = new ArrayList<Integer>();\n    for (int item : list) {\n        if (item != val) {\n            result.add(item);\n        }\n    }\n    return result;\n}\n// Called as: removeAll(list, 2)\n```",
+    "options": ["[1, 3, 4, 5]", "[2, 2, 2]", "[1, 2, 3, 4, 5]", "[1, 3, 2, 4, 2, 5]"],
+    "correct": 0,
+    "explanation": "Instead of modifying the original list (which would cause problems with for-each), this method builds a NEW list containing only elements that are NOT equal to `val`. It copies 1, skips 2, copies 3, skips 2, copies 4, skips 2, copies 5. Result: [1, 3, 4, 5]. This is a smart pattern to avoid ConcurrentModificationException.",
+    "difficulty": "hard"
+  },
+  {
+    "id": "u7q15",
+    "question": "What does autoboxing do in Java?",
+    "options": [
+      "Automatically converts between primitive types like int and double",
+      "Automatically converts between a primitive type (like int) and its wrapper class (like Integer)",
+      "Automatically creates a new ArrayList when needed",
+      "Automatically sorts the elements in an ArrayList"
+    ],
+    "correct": 1,
+    "explanation": "Autoboxing is Java's automatic conversion between primitive types and their wrapper classes. When you write `list.add(5)`, Java autoboxes the int 5 into an Integer object. When you write `int n = list.get(0)`, Java unboxes the Integer back to an int. This makes working with ArrayLists of numbers feel natural, even though ArrayList can only hold objects.",
+    "difficulty": "medium"
+  }
+]

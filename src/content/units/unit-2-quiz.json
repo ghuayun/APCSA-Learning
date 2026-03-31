@@ -1,0 +1,132 @@
+[
+  {
+    "id": "u2q1",
+    "question": "What is the output of the following code?\n```java\nString name = \"Alice\";\nSystem.out.println(name.length());\n```",
+    "options": ["4", "5", "6", "Error"],
+    "correct": 1,
+    "explanation": "The length() method returns the number of characters in a String. \"Alice\" has 5 characters: A, l, i, c, e. Remember, length() counts every character including spaces if there were any.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u2q2",
+    "question": "Which of the following correctly creates a new String object?",
+    "options": [
+      "String s = new String[];",
+      "String s = \"hello\";",
+      "string s = \"hello\";",
+      "String s = new char('h');"
+    ],
+    "correct": 1,
+    "explanation": "In Java, String literals like \"hello\" automatically create String objects. Note that String is capitalized (it's a class, not a primitive). Option C uses lowercase 'string' which doesn't exist in Java. Options A and D have invalid syntax.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u2q3",
+    "question": "What is the output of the following code?\n```java\nString word = \"hamburger\";\nSystem.out.println(word.substring(4, 8));\n```",
+    "options": ["\"urge\"", "\"urger\"", "\"burg\"", "\"burge\""],
+    "correct": 2,
+    "explanation": "substring(4, 8) returns characters from index 4 up to (but NOT including) index 8. In \"hamburger\": index 4 is 'b', 5 is 'u', 6 is 'r', 7 is 'g'. So the result is \"burg\". Remember: the first index is inclusive, the second is exclusive!",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u2q4",
+    "question": "What does `Math.abs(-15)` return?",
+    "options": ["-15", "15", "0", "Error"],
+    "correct": 1,
+    "explanation": "Math.abs() returns the absolute value of a number — its distance from zero, always positive. Math.abs(-15) returns 15. Think of it like removing the negative sign.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u2q5",
+    "question": "What is the output of the following code?\n```java\nString a = \"Java\";\nString b = \"Java\";\nSystem.out.println(a.equals(b));\n```",
+    "options": ["true", "false", "Error", "Java"],
+    "correct": 0,
+    "explanation": "The .equals() method compares the actual content of two Strings character by character. Since both a and b contain \"Java\", a.equals(b) returns true. Always use .equals() to compare Strings, not ==!",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u2q6",
+    "question": "What is the output of the following code?\n```java\nString text = \"AP Computer Science\";\nint idx = text.indexOf(\"Computer\");\nSystem.out.println(idx);\n```",
+    "options": ["2", "3", "4", "-1"],
+    "correct": 1,
+    "explanation": "indexOf() returns the index of the first character where the substring starts. In \"AP Computer Science\", the 'C' in 'Computer' is at index 3 (A=0, P=1, space=2, C=3). Spaces count as characters!",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u2q7",
+    "question": "What is the output of the following code?\n```java\nint x = 5;\nString result = \"Score: \" + x + 3;\nSystem.out.println(result);\n```",
+    "options": ["Score: 8", "Score: 53", "Score: 5 3", "Error"],
+    "correct": 1,
+    "explanation": "String concatenation works left to right. First, \"Score: \" + x concatenates the String with 5, giving \"Score: 5\". Then \"Score: 5\" + 3 concatenates with 3, giving \"Score: 53\". To get 8, you'd need parentheses: \"Score: \" + (x + 3).",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u2q8",
+    "question": "What does the following code print?\n```java\nString msg = \"hello\";\nString upper = msg.toUpperCase();\nSystem.out.println(msg);\n```",
+    "options": ["HELLO", "hello", "Hello", "Error"],
+    "correct": 1,
+    "explanation": "Strings in Java are immutable — they cannot be changed. When you call msg.toUpperCase(), it creates a NEW String \"HELLO\" and stores it in upper, but the original msg is still \"hello\". This is a key AP exam concept!",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u2q9",
+    "question": "Which expression generates a random integer from 1 to 6 (inclusive), simulating a dice roll?",
+    "options": [
+      "(int)(Math.random() * 6)",
+      "(int)(Math.random() * 6) + 1",
+      "(int)(Math.random() * 7)",
+      "Math.random() * 6 + 1"
+    ],
+    "correct": 1,
+    "explanation": "Math.random() returns a double from 0.0 (inclusive) to 1.0 (exclusive). Multiply by 6 to get 0.0 to 5.999... Cast to int to get 0–5. Add 1 to shift the range to 1–6. Option A gives 0–5. Option C gives 0–6 (7 values). Option D returns a double, not an integer.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u2q10",
+    "question": "What is the output of the following code?\n```java\nString s1 = \"apple\";\nString s2 = \"banana\";\nSystem.out.println(s1.compareTo(s2) < 0);\n```",
+    "options": ["true", "false", "0", "Error"],
+    "correct": 0,
+    "explanation": "compareTo() compares Strings lexicographically (dictionary order). Since \"apple\" comes before \"banana\" alphabetically, s1.compareTo(s2) returns a negative number. Negative < 0 is true. compareTo returns negative if the calling String comes first, positive if it comes after, and 0 if they're equal.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u2q11",
+    "question": "What is the output of the following code?\n```java\nInteger x = 5;\nint y = x;\nSystem.out.println(y + 10);\n```",
+    "options": ["15", "510", "Error", "null"],
+    "correct": 0,
+    "explanation": "This demonstrates autoboxing and unboxing. Integer x = 5 autoboxes the int 5 into an Integer object. int y = x unboxes the Integer back to a primitive int. Then y + 10 = 5 + 10 = 15. Java handles this conversion automatically!",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u2q12",
+    "question": "What is the output of the following code?\n```java\nString str = null;\nSystem.out.println(str.length());\n```",
+    "options": ["0", "null", "NullPointerException", "Error at compile time"],
+    "correct": 2,
+    "explanation": "When a reference variable is null, it doesn't point to any object. Trying to call a method on null throws a NullPointerException at runtime. The code compiles fine, but crashes when it runs. This is one of the most common runtime errors in Java!",
+    "difficulty": "hard"
+  },
+  {
+    "id": "u2q13",
+    "question": "What is the output of the following code?\n```java\nString s = \"racecar\";\nint len = s.length();\nString first = s.substring(0, len / 2);\nString last = s.substring(len / 2 + 1);\nSystem.out.println(first.equals(new StringBuilder(last).reverse().toString()));\n```",
+    "options": ["true", "false", "Error", "racecar"],
+    "correct": 0,
+    "explanation": "\"racecar\" has length 7. len / 2 = 3. first = s.substring(0, 3) = \"rac\". last = s.substring(4) = \"car\". Reversing \"car\" gives \"rac\". Since \"rac\".equals(\"rac\") is true, the output is true. This code checks if a word is a palindrome!",
+    "difficulty": "hard"
+  },
+  {
+    "id": "u2q14",
+    "question": "What is the output of the following code?\n```java\nString s = \"Java is fun\";\nSystem.out.println(s.indexOf(\"is\") + s.substring(5, 7));\n```",
+    "options": ["5is", "7is", "5 i", "is5"],
+    "correct": 0,
+    "explanation": "s.indexOf(\"is\") finds \"is\" starting at index 5 in \"Java is fun\", so it returns 5 (an int). s.substring(5, 7) returns \"is\" (characters at index 5 and 6). When you use + with an int and a String, Java converts the int to a String and concatenates: \"5\" + \"is\" = \"5is\".",
+    "difficulty": "hard"
+  },
+  {
+    "id": "u2q15",
+    "question": "What is the output of the following code?\n```java\nDouble d = null;\ndouble result = d + 1.0;\nSystem.out.println(result);\n```",
+    "options": ["1.0", "null", "NullPointerException", "Error at compile time"],
+    "correct": 2,
+    "explanation": "When Java tries to unbox the null Double to a primitive double (to perform addition), it throws a NullPointerException. The code compiles fine because autoboxing/unboxing is valid syntax, but at runtime, you can't unbox null into a primitive value. This is a tricky edge case that combines wrapper classes with null references!",
+    "difficulty": "hard"
+  }
+]

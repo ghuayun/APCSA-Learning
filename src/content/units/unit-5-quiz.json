@@ -1,0 +1,167 @@
+[
+  {
+    "id": "u5q1",
+    "question": "Which of the following correctly declares a private instance variable in a class?",
+    "options": [
+      "private int score;",
+      "int private score;",
+      "private score int;",
+      "var score = 0;"
+    ],
+    "correct": 0,
+    "explanation": "In Java, the access modifier comes first, then the type, then the variable name. So `private int score;` is correct. The keyword `private` means only code inside the class can directly access this variable.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u5q2",
+    "question": "What is a constructor in Java?",
+    "options": [
+      "A method that returns a new object's type",
+      "A special method that is called when an object is created using `new`",
+      "A method that destroys an object when it's no longer needed",
+      "A static method that belongs to the class rather than an instance"
+    ],
+    "correct": 1,
+    "explanation": "A constructor is a special method that runs automatically when you create an object with `new`. It has the same name as the class and no return type — not even void. Its job is to initialize the object's instance variables.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u5q3",
+    "question": "What is the output of the following code?\n```java\npublic class Dog {\n    private String name;\n    public Dog(String name) {\n        this.name = name;\n    }\n    public String getName() {\n        return name;\n    }\n}\n// In main:\nDog d = new Dog(\"Buddy\");\nSystem.out.println(d.getName());\n```",
+    "options": ["null", "Buddy", "name", "Error"],
+    "correct": 1,
+    "explanation": "The constructor sets `this.name` to \"Buddy\". The `getName()` accessor method returns the value of `name`, which is \"Buddy\". This is a classic getter pattern.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u5q4",
+    "question": "Which of the following is an accessor (getter) method?",
+    "options": [
+      "public void setAge(int age) { this.age = age; }",
+      "public int getAge() { return age; }",
+      "public Dog(int age) { this.age = age; }",
+      "private int age;"
+    ],
+    "correct": 1,
+    "explanation": "An accessor (getter) method returns the value of an instance variable without changing it. It typically starts with `get`, has a return type matching the variable, and takes no parameters. Option A is a mutator (setter), C is a constructor, and D is just a variable declaration.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u5q5",
+    "question": "What does the keyword `this` refer to inside a method?",
+    "options": [
+      "The class itself",
+      "The current object (the instance the method was called on)",
+      "The main method",
+      "The parameter being passed in"
+    ],
+    "correct": 1,
+    "explanation": "Inside a method, `this` refers to the current object — the specific instance that the method was called on. It's used to distinguish between instance variables and parameters that have the same name, like `this.name = name;`.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u5q6",
+    "question": "What is the output of the following code?\n```java\npublic class Counter {\n    private int count;\n    public Counter() {\n        count = 0;\n    }\n    public void increment() {\n        count++;\n    }\n    public int getCount() {\n        return count;\n    }\n}\n// In main:\nCounter c = new Counter();\nc.increment();\nc.increment();\nc.increment();\nSystem.out.println(c.getCount());\n```",
+    "options": ["0", "1", "3", "Error"],
+    "correct": 2,
+    "explanation": "The constructor sets count to 0. Each call to `increment()` adds 1 to count. After three calls, count is 3. The `getCount()` method returns 3.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u5q7",
+    "question": "What happens if you write a class with no constructor?",
+    "options": [
+      "The code won't compile",
+      "Java provides a default no-argument constructor that sets fields to default values",
+      "The class can never create objects",
+      "All instance variables are set to null"
+    ],
+    "correct": 1,
+    "explanation": "If you don't write any constructor, Java automatically provides a default no-argument constructor. It initializes numeric fields to 0, booleans to false, and object references to null. However, if you write ANY constructor, Java no longer provides the default one.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u5q8",
+    "question": "What is the output of the following code?\n```java\npublic class Point {\n    private int x;\n    private int y;\n    public Point(int x, int y) {\n        this.x = x;\n        this.y = y;\n    }\n    public String toString() {\n        return \"(\" + x + \", \" + y + \")\";\n    }\n}\n// In main:\nPoint p = new Point(3, 7);\nSystem.out.println(p);\n```",
+    "options": ["Point@1a2b3c", "(3, 7)", "3, 7", "Error"],
+    "correct": 1,
+    "explanation": "When you pass an object to `System.out.println()`, Java automatically calls its `toString()` method. Since this class overrides `toString()` to return a formatted string, it prints \"(3, 7)\" instead of the default memory address.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u5q9",
+    "question": "Which of the following demonstrates method overloading?",
+    "options": [
+      "Two methods with the same name but different parameter lists in the same class",
+      "A method in a subclass that replaces a parent method",
+      "Two methods with different names but the same parameters",
+      "A method that calls itself"
+    ],
+    "correct": 0,
+    "explanation": "Method overloading is when a class has multiple methods with the same name but different parameter lists (different number of parameters, different types, or both). Java figures out which one to call based on the arguments you pass. This is different from overriding, which involves inheritance.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u5q10",
+    "question": "What is the difference between a `static` method and an instance method?",
+    "options": [
+      "A static method is faster than an instance method",
+      "A static method belongs to the class and can be called without creating an object; an instance method requires an object",
+      "A static method can only be called once; an instance method can be called many times",
+      "There is no difference — they are the same thing"
+    ],
+    "correct": 1,
+    "explanation": "A static method belongs to the class itself and is called using the class name (like `Math.sqrt()`). It can't access instance variables because there's no specific object. An instance method belongs to a specific object and can access that object's instance variables.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u5q11",
+    "question": "Why should instance variables be declared as `private`?",
+    "options": [
+      "Private variables use less memory than public ones",
+      "It prevents code outside the class from directly changing them, protecting data integrity",
+      "Private variables are automatically initialized to zero",
+      "Java requires all variables to be private"
+    ],
+    "correct": 1,
+    "explanation": "Making instance variables `private` is a key principle called encapsulation. It means outside code must use your getter/setter methods to access the data. This lets you control what values are allowed (e.g., preventing a negative age) and change the internal implementation without breaking other code.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u5q12",
+    "question": "What is the output of the following code?\n```java\npublic class Pair {\n    private int a;\n    private int b;\n    public Pair(int a, int b) {\n        a = a;\n        b = b;\n    }\n    public int getA() { return a; }\n}\n// In main:\nPair p = new Pair(5, 10);\nSystem.out.println(p.getA());\n```",
+    "options": ["5", "10", "0", "Error"],
+    "correct": 2,
+    "explanation": "This is a classic bug! In the constructor, `a = a;` assigns the parameter `a` to itself — it does NOT set the instance variable. You need `this.a = a;` to specify that you mean the instance variable. Without `this`, the instance variable `a` keeps its default value of 0.",
+    "difficulty": "hard"
+  },
+  {
+    "id": "u5q13",
+    "question": "What is the output of the following code?\n```java\npublic class Greeter {\n    private String greeting;\n    public Greeter(String g) {\n        greeting = g;\n    }\n    public Greeter() {\n        this(\"Hello\");\n    }\n    public String greet(String name) {\n        return greeting + \", \" + name + \"!\";\n    }\n}\n// In main:\nGreeter g = new Greeter();\nSystem.out.println(g.greet(\"Alice\"));\n```",
+    "options": ["null, Alice!", "Hello, Alice!", "Error — can't have two constructors", "Error — this() is invalid"],
+    "correct": 1,
+    "explanation": "The no-arg constructor calls `this(\"Hello\")`, which invokes the other constructor with \"Hello\" as the argument, setting greeting to \"Hello\". Then `greet(\"Alice\")` returns \"Hello, Alice!\". Using `this()` to call another constructor in the same class is a valid and common pattern.",
+    "difficulty": "hard"
+  },
+  {
+    "id": "u5q14",
+    "question": "Consider the following class:\n```java\npublic class BankAccount {\n    private double balance;\n    public BankAccount(double initial) {\n        balance = initial;\n    }\n    public void deposit(double amount) {\n        balance += amount;\n    }\n    public boolean withdraw(double amount) {\n        if (amount > balance) return false;\n        balance -= amount;\n        return true;\n    }\n    public double getBalance() {\n        return balance;\n    }\n}\n```\nWhat is the output?\n```java\nBankAccount acc = new BankAccount(100.0);\nacc.deposit(50.0);\nacc.withdraw(200.0);\nacc.withdraw(30.0);\nSystem.out.println(acc.getBalance());\n```",
+    "options": ["120.0", "-80.0", "100.0", "70.0"],
+    "correct": 0,
+    "explanation": "Start with balance = 100.0. After deposit(50.0), balance = 150.0. withdraw(200.0) fails because 200 > 150, so balance stays 150.0. withdraw(30.0) succeeds: 150.0 - 30.0 = 120.0. The withdraw method protects against overdrafts by checking the balance first.",
+    "difficulty": "hard"
+  },
+  {
+    "id": "u5q15",
+    "question": "Which of the following statements about static variables is TRUE?",
+    "options": [
+      "Each object gets its own copy of a static variable",
+      "A static variable is shared across all instances of a class and belongs to the class itself",
+      "Static variables cannot be accessed from static methods",
+      "Static variables must be public"
+    ],
+    "correct": 1,
+    "explanation": "A static variable belongs to the class, not to any individual object. All instances share the same static variable. If one object changes it, the change is visible to all objects. This is useful for things like counting how many objects have been created (e.g., `private static int count = 0;`).",
+    "difficulty": "hard"
+  }
+]

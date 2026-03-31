@@ -15,8 +15,8 @@ import CodeEditor from "@/components/CodeEditor";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-
-import exercisesData from "@/content/units/unit-1-exercises.json";
+import { useParams } from "next/navigation";
+import { getUnitExercises } from "@/content/units";
 
 interface Exercise {
   id: string;
@@ -28,8 +28,6 @@ interface Exercise {
   hints: string[];
   solution?: string;
 }
-
-const exercises: Exercise[] = exercisesData as Exercise[];
 
 const difficultyColor: Record<string, string> = {
   easy: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30",
@@ -56,6 +54,10 @@ function simulateRun(code: string): { stdout: string; stderr: string } {
 }
 
 export default function CodeLabPage() {
+  const params = useParams();
+  const unitId = Number(params.id);
+  const exercises: Exercise[] = getUnitExercises(unitId) as Exercise[];
+
   const [selectedIdx, setSelectedIdx] = useState(0);
   const [code, setCode] = useState(exercises[0]?.starterCode ?? "");
   const [output, setOutput] = useState<{

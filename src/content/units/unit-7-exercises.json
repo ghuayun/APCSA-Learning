@@ -1,0 +1,72 @@
+[
+  {
+    "id": "u7e1",
+    "title": "Playlist Manager",
+    "description": "Create a playlist manager using an ArrayList of Strings.\n\n1. Create an ArrayList and add these songs: \"Blinding Lights\", \"Levitating\", \"Watermelon Sugar\", \"drivers license\", \"Stay\"\n2. Remove \"Watermelon Sugar\" from the playlist\n3. Add \"Anti-Hero\" at index 1 (second position)\n4. Print the final playlist size and all songs\n\nUse a for-each loop to print each song on its own line.",
+    "starterCode": "import java.util.ArrayList;\n\npublic class Main {\n    public static void main(String[] args) {\n        ArrayList<String> playlist = new ArrayList<String>();\n        // Your code here\n    }\n}",
+    "expectedOutput": "Playlist size: 5\nBlinding Lights\nAnti-Hero\nLevitating\ndrivers license\nStay",
+    "hints": [
+      "Use playlist.add(\"song\") to add to the end, and playlist.add(index, \"song\") to insert at a position",
+      "To remove by value, use playlist.remove(\"Watermelon Sugar\") — it removes the first match",
+      "Use a for-each loop: for (String song : playlist) { System.out.println(song); }"
+    ],
+    "solution": "import java.util.ArrayList;\n\npublic class Main {\n    public static void main(String[] args) {\n        ArrayList<String> playlist = new ArrayList<String>();\n        playlist.add(\"Blinding Lights\");\n        playlist.add(\"Levitating\");\n        playlist.add(\"Watermelon Sugar\");\n        playlist.add(\"drivers license\");\n        playlist.add(\"Stay\");\n        playlist.remove(\"Watermelon Sugar\");\n        playlist.add(1, \"Anti-Hero\");\n        System.out.println(\"Playlist size: \" + playlist.size());\n        for (String song : playlist) {\n            System.out.println(song);\n        }\n    }\n}",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u7e2",
+    "title": "Remove All Occurrences",
+    "description": "Write a method `removeAll` that takes an `ArrayList<Integer>` and a target value, and removes ALL occurrences of that value from the list.\n\nGiven the list `[3, 7, 3, 2, 3, 9, 3]` and target `3`, the list should become `[7, 2, 9]`.\n\n**Important:** Be careful about how you iterate! Removing elements during a forward loop causes bugs. Iterate backwards to stay safe.",
+    "starterCode": "import java.util.ArrayList;\n\npublic class Main {\n    public static void removeAll(ArrayList<Integer> list, int target) {\n        // Your code here\n    }\n\n    public static void main(String[] args) {\n        ArrayList<Integer> nums = new ArrayList<Integer>();\n        nums.add(3); nums.add(7); nums.add(3);\n        nums.add(2); nums.add(3); nums.add(9); nums.add(3);\n        removeAll(nums, 3);\n        System.out.println(nums);\n    }\n}",
+    "expectedOutput": "[7, 2, 9]",
+    "hints": [
+      "Iterate backwards: for (int i = list.size() - 1; i >= 0; i--)",
+      "When going backwards, removing an element doesn't mess up the indices of elements you haven't checked yet",
+      "Use list.get(i) == target to check, and list.remove(i) to remove"
+    ],
+    "solution": "import java.util.ArrayList;\n\npublic class Main {\n    public static void removeAll(ArrayList<Integer> list, int target) {\n        for (int i = list.size() - 1; i >= 0; i--) {\n            if (list.get(i) == target) {\n                list.remove(i);\n            }\n        }\n    }\n\n    public static void main(String[] args) {\n        ArrayList<Integer> nums = new ArrayList<Integer>();\n        nums.add(3); nums.add(7); nums.add(3);\n        nums.add(2); nums.add(3); nums.add(9); nums.add(3);\n        removeAll(nums, 3);\n        System.out.println(nums);\n    }\n}",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u7e3",
+    "title": "Find Unique Elements",
+    "description": "Write a method `findUniques` that takes an `ArrayList<Integer>` and returns a NEW `ArrayList<Integer>` containing only the elements that appear exactly once in the original list.\n\nGiven `[1, 2, 3, 2, 4, 1, 5]`, return `[3, 4, 5]` (since 1 and 2 each appear more than once).\n\nPreserve the order of first appearance.",
+    "starterCode": "import java.util.ArrayList;\n\npublic class Main {\n    public static ArrayList<Integer> findUniques(ArrayList<Integer> list) {\n        // Your code here\n    }\n\n    public static void main(String[] args) {\n        ArrayList<Integer> nums = new ArrayList<Integer>();\n        nums.add(1); nums.add(2); nums.add(3);\n        nums.add(2); nums.add(4); nums.add(1); nums.add(5);\n        System.out.println(findUniques(nums));\n    }\n}",
+    "expectedOutput": "[3, 4, 5]",
+    "hints": [
+      "For each element, count how many times it appears in the list",
+      "You can write a helper loop that counts occurrences: loop through the list and count matches",
+      "If the count is exactly 1, add it to the result list"
+    ],
+    "solution": "import java.util.ArrayList;\n\npublic class Main {\n    public static ArrayList<Integer> findUniques(ArrayList<Integer> list) {\n        ArrayList<Integer> result = new ArrayList<Integer>();\n        for (int i = 0; i < list.size(); i++) {\n            int val = list.get(i);\n            int count = 0;\n            for (int j = 0; j < list.size(); j++) {\n                if (list.get(j) == val) {\n                    count++;\n                }\n            }\n            if (count == 1) {\n                result.add(val);\n            }\n        }\n        return result;\n    }\n\n    public static void main(String[] args) {\n        ArrayList<Integer> nums = new ArrayList<Integer>();\n        nums.add(1); nums.add(2); nums.add(3);\n        nums.add(2); nums.add(4); nums.add(1); nums.add(5);\n        System.out.println(findUniques(nums));\n    }\n}",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u7e4",
+    "title": "Merge Two ArrayLists",
+    "description": "Write a method `mergeSorted` that takes two sorted `ArrayList<Integer>` lists and returns a NEW sorted `ArrayList<Integer>` containing all elements from both lists in order.\n\nGiven list1 = `[1, 3, 5, 7]` and list2 = `[2, 4, 6, 8, 10]`, return `[1, 2, 3, 4, 5, 6, 7, 8, 10]`.\n\n**Challenge:** Do this in one pass using two index variables — don't just combine and sort!",
+    "starterCode": "import java.util.ArrayList;\n\npublic class Main {\n    public static ArrayList<Integer> mergeSorted(ArrayList<Integer> a, ArrayList<Integer> b) {\n        // Your code here\n    }\n\n    public static void main(String[] args) {\n        ArrayList<Integer> list1 = new ArrayList<Integer>();\n        list1.add(1); list1.add(3); list1.add(5); list1.add(7);\n        ArrayList<Integer> list2 = new ArrayList<Integer>();\n        list2.add(2); list2.add(4); list2.add(6); list2.add(8); list2.add(10);\n        System.out.println(mergeSorted(list1, list2));\n    }\n}",
+    "expectedOutput": "[1, 2, 3, 4, 5, 6, 7, 8, 10]",
+    "hints": [
+      "Use two index variables: int i = 0 (for list a) and int j = 0 (for list b)",
+      "Compare a.get(i) and b.get(j) — add the smaller one to the result and advance that pointer",
+      "After one list is exhausted, add all remaining elements from the other list"
+    ],
+    "solution": "import java.util.ArrayList;\n\npublic class Main {\n    public static ArrayList<Integer> mergeSorted(ArrayList<Integer> a, ArrayList<Integer> b) {\n        ArrayList<Integer> result = new ArrayList<Integer>();\n        int i = 0;\n        int j = 0;\n        while (i < a.size() && j < b.size()) {\n            if (a.get(i) <= b.get(j)) {\n                result.add(a.get(i));\n                i++;\n            } else {\n                result.add(b.get(j));\n                j++;\n            }\n        }\n        while (i < a.size()) {\n            result.add(a.get(i));\n            i++;\n        }\n        while (j < b.size()) {\n            result.add(b.get(j));\n            j++;\n        }\n        return result;\n    }\n\n    public static void main(String[] args) {\n        ArrayList<Integer> list1 = new ArrayList<Integer>();\n        list1.add(1); list1.add(3); list1.add(5); list1.add(7);\n        ArrayList<Integer> list2 = new ArrayList<Integer>();\n        list2.add(2); list2.add(4); list2.add(6); list2.add(8); list2.add(10);\n        System.out.println(mergeSorted(list1, list2));\n    }\n}",
+    "difficulty": "hard"
+  },
+  {
+    "id": "u7e5",
+    "title": "Student Roster Manager",
+    "description": "Create a student roster manager using ArrayLists.\n\nWrite a class with these static methods:\n- `addStudent(ArrayList<String> roster, String name)` — adds a student only if they're NOT already in the list. Returns true if added, false if duplicate.\n- `removeStudent(ArrayList<String> roster, String name)` — removes a student. Returns true if found and removed, false if not found.\n- `printRoster(ArrayList<String> roster)` — prints the roster size and each name\n\nTest by adding students (including a duplicate attempt), removing one, and printing the final roster.",
+    "starterCode": "import java.util.ArrayList;\n\npublic class Main {\n    // Write addStudent, removeStudent, and printRoster methods\n\n    public static void main(String[] args) {\n        ArrayList<String> roster = new ArrayList<String>();\n        System.out.println(addStudent(roster, \"Alice\"));\n        System.out.println(addStudent(roster, \"Bob\"));\n        System.out.println(addStudent(roster, \"Charlie\"));\n        System.out.println(addStudent(roster, \"Alice\"));\n        removeStudent(roster, \"Bob\");\n        printRoster(roster);\n    }\n}",
+    "expectedOutput": "true\ntrue\ntrue\nfalse\nRoster (2 students):\nAlice\nCharlie",
+    "hints": [
+      "Use roster.contains(name) to check if a student is already in the list before adding",
+      "Use roster.remove(name) which returns a boolean — true if the element was found and removed",
+      "In printRoster, use roster.size() to show the count, then loop through to print each name"
+    ],
+    "solution": "import java.util.ArrayList;\n\npublic class Main {\n    public static boolean addStudent(ArrayList<String> roster, String name) {\n        if (roster.contains(name)) {\n            return false;\n        }\n        roster.add(name);\n        return true;\n    }\n\n    public static boolean removeStudent(ArrayList<String> roster, String name) {\n        return roster.remove(name);\n    }\n\n    public static void printRoster(ArrayList<String> roster) {\n        System.out.println(\"Roster (\" + roster.size() + \" students):\");\n        for (String name : roster) {\n            System.out.println(name);\n        }\n    }\n\n    public static void main(String[] args) {\n        ArrayList<String> roster = new ArrayList<String>();\n        System.out.println(addStudent(roster, \"Alice\"));\n        System.out.println(addStudent(roster, \"Bob\"));\n        System.out.println(addStudent(roster, \"Charlie\"));\n        System.out.println(addStudent(roster, \"Alice\"));\n        removeStudent(roster, \"Bob\");\n        printRoster(roster);\n    }\n}",
+    "difficulty": "medium"
+  }
+]

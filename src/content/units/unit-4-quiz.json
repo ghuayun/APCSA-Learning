@@ -1,0 +1,137 @@
+[
+  {
+    "id": "u4q1",
+    "question": "How many times does the following loop print \"Hello\"?\n```java\nfor (int i = 0; i < 5; i++) {\n    System.out.println(\"Hello\");\n}\n```",
+    "options": ["4", "5", "6", "Infinite"],
+    "correct": 1,
+    "explanation": "The loop starts at i = 0 and runs while i < 5. So i takes values 0, 1, 2, 3, 4 — that's 5 iterations. It stops when i becomes 5 because 5 < 5 is false.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u4q2",
+    "question": "What is the output of the following code?\n```java\nint x = 1;\nwhile (x <= 4) {\n    System.out.print(x + \" \");\n    x++;\n}\n```",
+    "options": ["1 2 3 4 ", "1 2 3 4 5 ", "2 3 4 5 ", "1 2 3 "],
+    "correct": 0,
+    "explanation": "The while loop checks x <= 4 before each iteration. x starts at 1, prints, increments to 2, prints, increments to 3, prints, increments to 4, prints, increments to 5, and then 5 <= 4 is false so it stops. Output: 1 2 3 4.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u4q3",
+    "question": "What is the output of the following code?\n```java\nfor (int i = 10; i > 0; i -= 3) {\n    System.out.print(i + \" \");\n}\n```",
+    "options": ["10 7 4 1 ", "10 7 4 ", "10 8 6 4 2 ", "10 7 4 1 -2 "],
+    "correct": 0,
+    "explanation": "The loop starts at 10 and decreases by 3 each time. i = 10 (print), i = 7 (print), i = 4 (print), i = 1 (print), i = -2 (stop, since -2 > 0 is false). Output: 10 7 4 1.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u4q4",
+    "question": "Which of the following creates an infinite loop?",
+    "options": [
+      "for (int i = 0; i < 10; i++) {}",
+      "while (false) {}",
+      "while (true) {}",
+      "for (int i = 10; i > 0; i--) {}"
+    ],
+    "correct": 2,
+    "explanation": "while (true) will loop forever because the condition is always true and never changes. Option A runs 10 times and stops. Option B never runs at all (condition is immediately false). Option D counts down from 10 to 1 and stops.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u4q5",
+    "question": "What is the output of the following code?\n```java\nint sum = 0;\nfor (int i = 1; i <= 5; i++) {\n    sum += i;\n}\nSystem.out.println(sum);\n```",
+    "options": ["10", "15", "5", "20"],
+    "correct": 1,
+    "explanation": "This is an accumulator pattern. The loop adds each value of i to sum: 0 + 1 = 1, 1 + 2 = 3, 3 + 3 = 6, 6 + 4 = 10, 10 + 5 = 15. The sum of 1 through 5 is 15.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u4q6",
+    "question": "What is the output of the following code?\n```java\nfor (int i = 0; i < 3; i++) {\n    for (int j = 0; j < 2; j++) {\n        System.out.print(\"* \");\n    }\n    System.out.println();\n}\n```",
+    "options": [
+      "* * \\n* * \\n* * ",
+      "* * * \\n* * * ",
+      "* * * * * * ",
+      "* \\n* \\n* \\n* \\n* \\n* "
+    ],
+    "correct": 0,
+    "explanation": "The outer loop runs 3 times (rows). For each row, the inner loop runs 2 times, printing \"* \" twice. Then println() moves to the next line. Result: 3 rows of 2 stars each. Nested loops multiply: 3 × 2 = 6 total stars.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u4q7",
+    "question": "What is the output of the following code?\n```java\nString word = \"Java\";\nfor (int i = 0; i < word.length(); i++) {\n    System.out.print(word.substring(i, i + 1) + \"-\");\n}\n```",
+    "options": ["J-a-v-a-", "Java-", "J-a-v-a", "Java"],
+    "correct": 0,
+    "explanation": "The loop iterates through each character of \"Java\" using substring(i, i+1). At i=0: \"J\", i=1: \"a\", i=2: \"v\", i=3: \"a\". Each character is followed by \"-\". Output: J-a-v-a- (note the trailing dash).",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u4q8",
+    "question": "What is the output of the following code?\n```java\nint count = 0;\nfor (int i = 1; i <= 20; i++) {\n    if (i % 3 == 0) {\n        count++;\n    }\n}\nSystem.out.println(count);\n```",
+    "options": ["5", "6", "7", "3"],
+    "correct": 1,
+    "explanation": "The loop counts how many numbers from 1 to 20 are divisible by 3. Those numbers are: 3, 6, 9, 12, 15, 18 — that's 6 numbers. The counter pattern is used: increment count only when the condition is met.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u4q9",
+    "question": "What is the output of the following code?\n```java\nint n = 5;\nint result = 1;\nwhile (n > 1) {\n    result *= n;\n    n--;\n}\nSystem.out.println(result);\n```",
+    "options": ["120", "24", "60", "5"],
+    "correct": 0,
+    "explanation": "This calculates a factorial! Trace it: result starts at 1. n=5: result = 1×5 = 5. n=4: result = 5×4 = 20. n=3: result = 20×3 = 60. n=2: result = 60×2 = 120. n=1: loop stops (1 > 1 is false). 5! = 120.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u4q10",
+    "question": "What is the value of `i` after this loop finishes?\n```java\nint i = 0;\nwhile (i < 10) {\n    i += 3;\n}\nSystem.out.println(i);\n```",
+    "options": ["9", "10", "12", "3"],
+    "correct": 2,
+    "explanation": "Trace the loop: i=0 (0 < 10, so i becomes 3), i=3 (3 < 10, so i becomes 6), i=6 (6 < 10, so i becomes 9), i=9 (9 < 10, so i becomes 12), i=12 (12 < 10 is false, loop stops). The final value of i is 12, not 9!",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u4q11",
+    "question": "What is the output of the following code?\n```java\nfor (int i = 1; i <= 4; i++) {\n    for (int j = 1; j <= i; j++) {\n        System.out.print(\"*\");\n    }\n    System.out.println();\n}\n```",
+    "options": [
+      "*\\n**\\n***\\n****",
+      "****\\n***\\n**\\n*",
+      "****\\n****\\n****\\n****",
+      "*\\n*\\n*\\n*"
+    ],
+    "correct": 0,
+    "explanation": "The inner loop runs j from 1 to i. When i=1: 1 star. When i=2: 2 stars. When i=3: 3 stars. When i=4: 4 stars. Each row is followed by a newline. This creates a right triangle pattern that grows from top to bottom.",
+    "difficulty": "hard"
+  },
+  {
+    "id": "u4q12",
+    "question": "What is the output of the following code?\n```java\nString s = \"abcdef\";\nString result = \"\";\nfor (int i = 0; i < s.length(); i += 2) {\n    result += s.substring(i, i + 1);\n}\nSystem.out.println(result);\n```",
+    "options": ["abcdef", "ace", "bdf", "abc"],
+    "correct": 1,
+    "explanation": "The loop increments by 2 (i += 2), so it visits indices 0, 2, and 4. At i=0: 'a', i=2: 'c', i=4: 'e'. Concatenating these gives \"ace\". This pattern picks every other character from the string.",
+    "difficulty": "hard"
+  },
+  {
+    "id": "u4q13",
+    "question": "What is the output of the following code?\n```java\nint x = 256;\nint count = 0;\nwhile (x > 1) {\n    x /= 2;\n    count++;\n}\nSystem.out.println(count);\n```",
+    "options": ["7", "8", "128", "256"],
+    "correct": 1,
+    "explanation": "The loop repeatedly divides x by 2. Starting at 256: 128, 64, 32, 16, 8, 4, 2, 1. When x becomes 1, the loop stops (1 > 1 is false). That's 8 divisions. This is essentially computing log₂(256) = 8. This is a common pattern in computer science!",
+    "difficulty": "hard"
+  },
+  {
+    "id": "u4q14",
+    "question": "What is the output of the following code?\n```java\nint total = 0;\nfor (int i = 1; i <= 3; i++) {\n    for (int j = 1; j <= 3; j++) {\n        if (i == j) {\n            total += i;\n        }\n    }\n}\nSystem.out.println(total);\n```",
+    "options": ["3", "6", "9", "18"],
+    "correct": 1,
+    "explanation": "The nested loop tries all combinations of i and j from 1 to 3. The condition i == j is true when: (1,1), (2,2), (3,3). So total = 1 + 2 + 3 = 6. This is like summing the diagonal of a 3×3 grid.",
+    "difficulty": "hard"
+  },
+  {
+    "id": "u4q15",
+    "question": "How many times does the inner print statement execute?\n```java\nfor (int i = 0; i < 5; i++) {\n    for (int j = i; j < 5; j++) {\n        System.out.print(\"X\");\n    }\n}\n```",
+    "options": ["25", "15", "10", "20"],
+    "correct": 1,
+    "explanation": "The inner loop starts at j = i (not 0!). When i=0: j runs 0-4 (5 times). i=1: j runs 1-4 (4 times). i=2: j runs 2-4 (3 times). i=3: j runs 3-4 (2 times). i=4: j runs 4-4 (1 time). Total: 5+4+3+2+1 = 15. This is a triangular number pattern.",
+    "difficulty": "hard"
+  }
+]

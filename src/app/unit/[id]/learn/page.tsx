@@ -11,10 +11,8 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CodeBlock } from "@/components/CodeBlock";
-import {
-  unit1Lesson,
-  type LessonSection,
-} from "@/content/units/unit-1-lesson";
+import { useParams } from "next/navigation";
+import { getUnitLesson, type LessonSection } from "@/content/units";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -326,7 +324,9 @@ function LessonSectionView({
 /*  Main Learn Page                                                    */
 /* ------------------------------------------------------------------ */
 export default function LearnPage() {
-  const { sections } = unit1Lesson;
+  const params = useParams();
+  const unitId = Number(params.id);
+  const { sections } = getUnitLesson(unitId);
   const [readSections, setReadSections] = useState<Set<string>>(new Set());
   const [completed, setCompleted] = useState(false);
 
@@ -410,7 +410,7 @@ export default function LearnPage() {
               <p className="font-semibold text-foreground">
                 Lesson Complete!
               </p>
-              <Button render={<Link href="/unit/1/quiz" />}>
+              <Button render={<Link href={`/unit/${unitId}/quiz`} />}>
                 Take the Quiz →
               </Button>
             </motion.div>

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "u4e1",
+    "title": "FizzBuzz",
+    "description": "Write a program that prints the numbers from 1 to 20, but with a twist:\n\n- If the number is divisible by 3, print `Fizz` instead\n- If the number is divisible by 5, print `Buzz` instead\n- If the number is divisible by BOTH 3 and 5, print `FizzBuzz` instead\n- Otherwise, print the number\n\nEach value should be on its own line.\n\n**This is a classic programming challenge** — it shows up in coding interviews all the time!",
+    "starterCode": "public class Main {\n    public static void main(String[] args) {\n        // Print FizzBuzz for numbers 1 through 20\n        // Your code here\n    }\n}",
+    "expectedOutput": "1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\nBuzz\n11\nFizz\n13\n14\nFizzBuzz\n16\n17\nFizz\n19\nBuzz",
+    "hints": [
+      "Use a for loop from 1 to 20",
+      "Check divisible by BOTH 3 and 5 FIRST (use &&), then check 3, then 5, then the else case",
+      "Use the modulo operator: i % 3 == 0 checks if i is divisible by 3"
+    ],
+    "solution": "public class Main {\n    public static void main(String[] args) {\n        for (int i = 1; i <= 20; i++) {\n            if (i % 3 == 0 && i % 5 == 0) {\n                System.out.println(\"FizzBuzz\");\n            } else if (i % 3 == 0) {\n                System.out.println(\"Fizz\");\n            } else if (i % 5 == 0) {\n                System.out.println(\"Buzz\");\n            } else {\n                System.out.println(i);\n            }\n        }\n    }\n}",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u4e2",
+    "title": "Number Pyramid Printer",
+    "description": "Write a program that prints a number pyramid with 5 rows:\n\n```\n1\n12\n123\n1234\n12345\n```\n\nRow 1 has just \"1\", row 2 has \"12\", row 3 has \"123\", and so on.\n\n**Hint:** You need nested loops — the outer loop controls the rows, and the inner loop controls how many numbers to print in each row.",
+    "starterCode": "public class Main {\n    public static void main(String[] args) {\n        int rows = 5;\n        // Your code here\n    }\n}",
+    "expectedOutput": "1\n12\n123\n1234\n12345",
+    "hints": [
+      "The outer for loop goes from row 1 to 5",
+      "The inner for loop goes from 1 to the current row number",
+      "Use System.out.print() (not println) for numbers in the same row, then println() at the end of each row"
+    ],
+    "solution": "public class Main {\n    public static void main(String[] args) {\n        int rows = 5;\n        for (int i = 1; i <= rows; i++) {\n            for (int j = 1; j <= i; j++) {\n                System.out.print(j);\n            }\n            System.out.println();\n        }\n    }\n}",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u4e3",
+    "title": "Digit Sum Calculator",
+    "description": "Write a program that calculates the sum of all digits in a number.\n\nGiven `number = 9473`, calculate the sum of its digits: 9 + 4 + 7 + 3 = 23.\n\nPrint the sum.\n\n**Challenge:** Use a while loop with `% 10` to extract the last digit and `/ 10` to remove it. Do NOT convert to a String!",
+    "starterCode": "public class Main {\n    public static void main(String[] args) {\n        int number = 9473;\n        int sum = 0;\n        // Your code here\n\n        System.out.println(sum);\n    }\n}",
+    "expectedOutput": "23",
+    "hints": [
+      "number % 10 gives you the last digit (e.g., 9473 % 10 = 3)",
+      "number / 10 removes the last digit (e.g., 9473 / 10 = 947)",
+      "Keep looping while number > 0, adding each digit to sum"
+    ],
+    "solution": "public class Main {\n    public static void main(String[] args) {\n        int number = 9473;\n        int sum = 0;\n        while (number > 0) {\n            sum += number % 10;\n            number /= 10;\n        }\n        System.out.println(sum);\n    }\n}",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u4e4",
+    "title": "Prime Number Checker",
+    "description": "Write a program that checks if a number is prime.\n\nA prime number is a number greater than 1 that has no divisors other than 1 and itself.\n\nGiven `number = 29`, determine if it's prime and print `true` or `false`.\n\n**Strategy:** Try dividing by every number from 2 up to (but not including) the number. If any divides evenly, it's not prime.",
+    "starterCode": "public class Main {\n    public static void main(String[] args) {\n        int number = 29;\n        // Your code here\n    }\n}",
+    "expectedOutput": "true",
+    "hints": [
+      "Start with boolean isPrime = true, then try to disprove it",
+      "Loop from 2 to number - 1. If number % i == 0 for any i, set isPrime = false",
+      "Optimization: you only need to check up to Math.sqrt(number), but checking up to number - 1 works too"
+    ],
+    "solution": "public class Main {\n    public static void main(String[] args) {\n        int number = 29;\n        boolean isPrime = number > 1;\n        for (int i = 2; i < number; i++) {\n            if (number % i == 0) {\n                isPrime = false;\n            }\n        }\n        System.out.println(isPrime);\n    }\n}",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u4e5",
+    "title": "Simple Pattern Printer",
+    "description": "Write a program that prints this diamond pattern using stars:\n\n```\n  *\n ***\n*****\n ***\n  *\n```\n\nThe diamond has 5 rows. Each row has:\n- Leading spaces to center the stars\n- An odd number of stars (1, 3, 5, 3, 1)\n\n**Hint:** Think of the top half (rows 1-3) and bottom half (rows 4-5) separately. You'll need nested loops — one for spaces and one for stars.",
+    "starterCode": "public class Main {\n    public static void main(String[] args) {\n        int size = 3; // half-size (the middle row has 2*size - 1 = 5 stars)\n        // Your code here\n    }\n}",
+    "expectedOutput": "  *\n ***\n*****\n ***\n  *",
+    "hints": [
+      "Top half: for row 1 to size, print (size - row) spaces then (2 * row - 1) stars",
+      "Bottom half: for row (size - 1) down to 1, print (size - row) spaces then (2 * row - 1) stars",
+      "Use System.out.print(\" \") for spaces and System.out.print(\"*\") for stars, then println() at row end"
+    ],
+    "solution": "public class Main {\n    public static void main(String[] args) {\n        int size = 3;\n        for (int i = 1; i <= size; i++) {\n            for (int s = 0; s < size - i; s++) {\n                System.out.print(\" \");\n            }\n            for (int j = 0; j < 2 * i - 1; j++) {\n                System.out.print(\"*\");\n            }\n            System.out.println();\n        }\n        for (int i = size - 1; i >= 1; i--) {\n            for (int s = 0; s < size - i; s++) {\n                System.out.print(\" \");\n            }\n            for (int j = 0; j < 2 * i - 1; j++) {\n                System.out.print(\"*\");\n            }\n            System.out.println();\n        }\n    }\n}",
+    "difficulty": "hard"
+  }
+]

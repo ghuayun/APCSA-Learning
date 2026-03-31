@@ -1,0 +1,72 @@
+[
+  {
+    "id": "u3e1",
+    "title": "Grade Calculator",
+    "description": "Write a program that converts a numeric grade to a letter grade using these rules:\n\n- 90–100: A\n- 80–89: B\n- 70–79: C\n- 60–69: D\n- Below 60: F\n\nGiven `grade = 87`, print the corresponding letter grade.",
+    "starterCode": "public class Main {\n    public static void main(String[] args) {\n        int grade = 87;\n        // Your code here\n    }\n}",
+    "expectedOutput": "B",
+    "hints": [
+      "Use an if-else-if chain, checking the highest range first",
+      "You only need to check the lower bound of each range since else-if handles the upper bound",
+      "if (grade >= 90) ... else if (grade >= 80) ... and so on"
+    ],
+    "solution": "public class Main {\n    public static void main(String[] args) {\n        int grade = 87;\n        String letter;\n        if (grade >= 90) {\n            letter = \"A\";\n        } else if (grade >= 80) {\n            letter = \"B\";\n        } else if (grade >= 70) {\n            letter = \"C\";\n        } else if (grade >= 60) {\n            letter = \"D\";\n        } else {\n            letter = \"F\";\n        }\n        System.out.println(letter);\n    }\n}",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u3e2",
+    "title": "Leap Year Checker",
+    "description": "Write a program that determines if a year is a leap year.\n\nA year is a leap year if:\n1. It is divisible by 4 AND\n2. It is NOT divisible by 100, UNLESS it is also divisible by 400\n\nGiven `year = 2024`, print `true` if it's a leap year, `false` otherwise.\n\n**Examples:** 2024 → true, 1900 → false, 2000 → true, 2023 → false.",
+    "starterCode": "public class Main {\n    public static void main(String[] args) {\n        int year = 2024;\n        // Your code here\n    }\n}",
+    "expectedOutput": "true",
+    "hints": [
+      "Use the modulo operator (%) to check divisibility: year % 4 == 0",
+      "The logic is: (divisible by 400) OR (divisible by 4 AND NOT divisible by 100)",
+      "boolean isLeap = (year % 400 == 0) || (year % 4 == 0 && year % 100 != 0);"
+    ],
+    "solution": "public class Main {\n    public static void main(String[] args) {\n        int year = 2024;\n        boolean isLeap = (year % 400 == 0) || (year % 4 == 0 && year % 100 != 0);\n        System.out.println(isLeap);\n    }\n}",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u3e3",
+    "title": "BMI Calculator with Categories",
+    "description": "Write a program that calculates BMI (Body Mass Index) and prints the health category.\n\nFormula: BMI = weight (kg) / (height (m) × height (m))\n\nCategories:\n- BMI < 18.5: Underweight\n- 18.5 ≤ BMI < 25.0: Normal\n- 25.0 ≤ BMI < 30.0: Overweight\n- BMI ≥ 30.0: Obese\n\nGiven `weight = 70.0` (kg) and `height = 1.75` (m):\n1. Print the BMI (Java will handle the decimal precision)\n2. Print the category",
+    "starterCode": "public class Main {\n    public static void main(String[] args) {\n        double weight = 70.0;\n        double height = 1.75;\n        // Your code here\n    }\n}",
+    "expectedOutput": "22.857142857142858\nNormal",
+    "hints": [
+      "Calculate BMI: weight / (height * height)",
+      "Use if-else-if to categorize — check the ranges in order",
+      "Be careful with the boundary values: 18.5 goes to Normal, 25.0 goes to Overweight"
+    ],
+    "solution": "public class Main {\n    public static void main(String[] args) {\n        double weight = 70.0;\n        double height = 1.75;\n        double bmi = weight / (height * height);\n        System.out.println(bmi);\n        String category;\n        if (bmi < 18.5) {\n            category = \"Underweight\";\n        } else if (bmi < 25.0) {\n            category = \"Normal\";\n        } else if (bmi < 30.0) {\n            category = \"Overweight\";\n        } else {\n            category = \"Obese\";\n        }\n        System.out.println(category);\n    }\n}",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u3e4",
+    "title": "Triangle Classifier",
+    "description": "Write a program that classifies a triangle based on its three side lengths.\n\nGiven three sides `a = 5`, `b = 5`, `c = 8`:\n1. First check if the sides can form a valid triangle (the sum of any two sides must be greater than the third)\n2. If valid, classify it as:\n   - **Equilateral**: all three sides are equal\n   - **Isosceles**: exactly two sides are equal\n   - **Scalene**: no sides are equal\n3. If invalid, print \"Not a valid triangle\"\n\nPrint the classification.",
+    "starterCode": "public class Main {\n    public static void main(String[] args) {\n        int a = 5;\n        int b = 5;\n        int c = 8;\n        // Your code here\n    }\n}",
+    "expectedOutput": "Isosceles",
+    "hints": [
+      "Triangle inequality: a + b > c AND a + c > b AND b + c > a",
+      "Check equilateral first (a == b && b == c), then isosceles, then scalene",
+      "For isosceles, check if ANY two sides are equal: a == b || a == c || b == c"
+    ],
+    "solution": "public class Main {\n    public static void main(String[] args) {\n        int a = 5;\n        int b = 5;\n        int c = 8;\n        if (a + b > c && a + c > b && b + c > a) {\n            if (a == b && b == c) {\n                System.out.println(\"Equilateral\");\n            } else if (a == b || a == c || b == c) {\n                System.out.println(\"Isosceles\");\n            } else {\n                System.out.println(\"Scalene\");\n            }\n        } else {\n            System.out.println(\"Not a valid triangle\");\n        }\n    }\n}",
+    "difficulty": "hard"
+  },
+  {
+    "id": "u3e5",
+    "title": "Simple Login Validator",
+    "description": "Write a program that validates a user login attempt.\n\nThe correct credentials are:\n- Username: `\"admin\"`\n- Password: `\"java2024\"`\n\nGiven `inputUser = \"admin\"` and `inputPass = \"Java2024\"`, check the login and print ONE of these messages:\n- `\"Login successful\"` — if both username AND password match\n- `\"Incorrect password\"` — if username matches but password doesn't\n- `\"User not found\"` — if username doesn't match\n\n**Important:** Use `.equals()` to compare Strings, not `==`!",
+    "starterCode": "public class Main {\n    public static void main(String[] args) {\n        String correctUser = \"admin\";\n        String correctPass = \"java2024\";\n        String inputUser = \"admin\";\n        String inputPass = \"Java2024\";\n        // Your code here\n    }\n}",
+    "expectedOutput": "Incorrect password",
+    "hints": [
+      "First check if the username matches using .equals()",
+      "If the username matches, THEN check the password inside a nested if or with && ",
+      "Remember: .equals() is case-sensitive! \"Java2024\" is NOT equal to \"java2024\""
+    ],
+    "solution": "public class Main {\n    public static void main(String[] args) {\n        String correctUser = \"admin\";\n        String correctPass = \"java2024\";\n        String inputUser = \"admin\";\n        String inputPass = \"Java2024\";\n        if (inputUser.equals(correctUser)) {\n            if (inputPass.equals(correctPass)) {\n                System.out.println(\"Login successful\");\n            } else {\n                System.out.println(\"Incorrect password\");\n            }\n        } else {\n            System.out.println(\"User not found\");\n        }\n    }\n}",
+    "difficulty": "hard"
+  }
+]

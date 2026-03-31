@@ -11,8 +11,9 @@ import {
   Target,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useParams } from "next/navigation";
 import { QuizQuestion } from "@/components/QuizQuestion";
-import quizData from "@/content/units/unit-1-quiz.json";
+import { getUnitQuiz } from "@/content/units";
 import Link from "next/link";
 
 interface Question {
@@ -46,7 +47,9 @@ const slideVariants = {
 };
 
 export default function QuizPage() {
-  const questions: Question[] = quizData as Question[];
+  const params = useParams();
+  const unitId = Number(params.id);
+  const questions: Question[] = getUnitQuiz(unitId) as Question[];
   const total = questions.length;
 
   const [current, setCurrent] = useState(0);
@@ -204,7 +207,7 @@ export default function QuizPage() {
               <RotateCcw className="size-4 mr-2" />
               Try Again
             </Button>
-            <Button render={<Link href="/unit/1/learn" />} className="flex-1 h-10">
+            <Button render={<Link href={`/unit/${unitId}/learn`} />} className="flex-1 h-10">
               Review Lesson
             </Button>
           </div>

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "u5e1",
+    "title": "Design a Student Class",
+    "description": "Create a `Student` class with:\n- Private instance variables: `name` (String) and `grade` (int)\n- A constructor that takes both values as parameters\n- Getter methods: `getName()` and `getGrade()`\n- A setter method: `setGrade(int grade)`\n- A `toString()` method that returns something like `\"Alice (Grade 10)\"`\n\nIn main, create a Student, print them, change their grade, and print again.",
+    "starterCode": "public class Student {\n    // Declare private instance variables\n\n    // Write a constructor\n\n    // Write getter methods\n\n    // Write a setter for grade\n\n    // Write toString()\n\n    public static void main(String[] args) {\n        Student s = new Student(\"Alice\", 9);\n        System.out.println(s);\n        s.setGrade(10);\n        System.out.println(s);\n    }\n}",
+    "expectedOutput": "Alice (Grade 9)\nAlice (Grade 10)",
+    "hints": [
+      "Declare variables with `private String name;` and `private int grade;`",
+      "In the constructor, use `this.name = name;` to distinguish the parameter from the instance variable",
+      "The toString() method should return a String — use string concatenation: return name + \" (Grade \" + grade + \")\";"
+    ],
+    "solution": "public class Student {\n    private String name;\n    private int grade;\n\n    public Student(String name, int grade) {\n        this.name = name;\n        this.grade = grade;\n    }\n\n    public String getName() {\n        return name;\n    }\n\n    public int getGrade() {\n        return grade;\n    }\n\n    public void setGrade(int grade) {\n        this.grade = grade;\n    }\n\n    public String toString() {\n        return name + \" (Grade \" + grade + \")\";\n    }\n\n    public static void main(String[] args) {\n        Student s = new Student(\"Alice\", 9);\n        System.out.println(s);\n        s.setGrade(10);\n        System.out.println(s);\n    }\n}",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u5e2",
+    "title": "BankAccount Class",
+    "description": "Create a `BankAccount` class with:\n- Private instance variable: `balance` (double)\n- A constructor that takes an initial balance\n- `deposit(double amount)` — adds money (only if amount > 0)\n- `withdraw(double amount)` — subtracts money (only if amount > 0 AND enough balance). Returns `true` if successful, `false` otherwise.\n- `getBalance()` — returns the current balance\n- `toString()` — returns `\"Balance: $X.XX\"` (use `String.format(\"Balance: $%.2f\", balance)`)\n\nTest all the methods in main.",
+    "starterCode": "public class BankAccount {\n    // Your code here\n\n    public static void main(String[] args) {\n        BankAccount acc = new BankAccount(100.0);\n        acc.deposit(50.0);\n        System.out.println(acc);\n        System.out.println(acc.withdraw(200.0));\n        System.out.println(acc.withdraw(30.0));\n        System.out.println(acc);\n    }\n}",
+    "expectedOutput": "Balance: $150.00\nfalse\ntrue\nBalance: $120.00",
+    "hints": [
+      "In deposit(), check `if (amount > 0)` before adding to balance",
+      "In withdraw(), check `if (amount > 0 && amount <= balance)` before subtracting",
+      "Use String.format(\"Balance: $%.2f\", balance) in toString() to format to 2 decimal places"
+    ],
+    "solution": "public class BankAccount {\n    private double balance;\n\n    public BankAccount(double balance) {\n        this.balance = balance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) {\n            balance += amount;\n        }\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= balance) {\n            balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return balance;\n    }\n\n    public String toString() {\n        return String.format(\"Balance: $%.2f\", balance);\n    }\n\n    public static void main(String[] args) {\n        BankAccount acc = new BankAccount(100.0);\n        acc.deposit(50.0);\n        System.out.println(acc);\n        System.out.println(acc.withdraw(200.0));\n        System.out.println(acc.withdraw(30.0));\n        System.out.println(acc);\n    }\n}",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u5e3",
+    "title": "Rectangle with Area and Perimeter",
+    "description": "Create a `Rectangle` class with:\n- Private instance variables: `width` (double) and `height` (double)\n- A constructor that takes width and height\n- `getArea()` — returns width × height\n- `getPerimeter()` — returns 2 × (width + height)\n- `isSquare()` — returns true if width equals height\n- `toString()` — returns `\"Rectangle(W x H)\"`\n\nCreate two rectangles in main: one that's a square and one that isn't. Print their areas, perimeters, and whether they're squares.",
+    "starterCode": "public class Rectangle {\n    // Your code here\n\n    public static void main(String[] args) {\n        Rectangle r1 = new Rectangle(5.0, 3.0);\n        Rectangle r2 = new Rectangle(4.0, 4.0);\n        System.out.println(r1 + \" Area: \" + r1.getArea() + \" Perimeter: \" + r1.getPerimeter() + \" Square? \" + r1.isSquare());\n        System.out.println(r2 + \" Area: \" + r2.getArea() + \" Perimeter: \" + r2.getPerimeter() + \" Square? \" + r2.isSquare());\n    }\n}",
+    "expectedOutput": "Rectangle(5.0 x 3.0) Area: 15.0 Perimeter: 16.0 Square? false\nRectangle(4.0 x 4.0) Area: 16.0 Perimeter: 16.0 Square? true",
+    "hints": [
+      "Area is simply width * height, perimeter is 2 * (width + height)",
+      "For isSquare(), compare width == height (this works fine for doubles in this exercise)",
+      "In toString(), return \"Rectangle(\" + width + \" x \" + height + \")\""
+    ],
+    "solution": "public class Rectangle {\n    private double width;\n    private double height;\n\n    public Rectangle(double width, double height) {\n        this.width = width;\n        this.height = height;\n    }\n\n    public double getArea() {\n        return width * height;\n    }\n\n    public double getPerimeter() {\n        return 2 * (width + height);\n    }\n\n    public boolean isSquare() {\n        return width == height;\n    }\n\n    public String toString() {\n        return \"Rectangle(\" + width + \" x \" + height + \")\";\n    }\n\n    public static void main(String[] args) {\n        Rectangle r1 = new Rectangle(5.0, 3.0);\n        Rectangle r2 = new Rectangle(4.0, 4.0);\n        System.out.println(r1 + \" Area: \" + r1.getArea() + \" Perimeter: \" + r1.getPerimeter() + \" Square? \" + r1.isSquare());\n        System.out.println(r2 + \" Area: \" + r2.getArea() + \" Perimeter: \" + r2.getPerimeter() + \" Square? \" + r2.isSquare());\n    }\n}",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u5e4",
+    "title": "Pet Class",
+    "description": "Create a `Pet` class with:\n- Private instance variables: `name` (String), `species` (String), `age` (int), and `hunger` (int, starts at 5 on a scale of 0-10)\n- A constructor that takes name, species, and age (hunger defaults to 5)\n- `feed()` — decreases hunger by 3 (minimum 0)\n- `play()` — increases hunger by 2 (maximum 10)\n- `getStatus()` — returns `\"happy\"` if hunger < 4, `\"okay\"` if hunger 4-7, `\"hungry\"` if hunger > 7\n- `toString()` — returns `\"Name the Species (age Y) - Status\"`\n\nCreate a pet, feed it, play with it, and show the status changes.",
+    "starterCode": "public class Pet {\n    // Your code here\n\n    public static void main(String[] args) {\n        Pet p = new Pet(\"Buddy\", \"Dog\", 3);\n        System.out.println(p);\n        p.feed();\n        System.out.println(p);\n        p.play();\n        p.play();\n        p.play();\n        System.out.println(p);\n    }\n}",
+    "expectedOutput": "Buddy the Dog (age 3) - okay\nBuddy the Dog (age 3) - happy\nBuddy the Dog (age 3) - hungry",
+    "hints": [
+      "In feed(), use Math.max(0, hunger - 3) to prevent going below 0",
+      "In play(), use Math.min(10, hunger + 2) to prevent going above 10",
+      "For getStatus(), use if/else if/else to check the hunger ranges"
+    ],
+    "solution": "public class Pet {\n    private String name;\n    private String species;\n    private int age;\n    private int hunger;\n\n    public Pet(String name, String species, int age) {\n        this.name = name;\n        this.species = species;\n        this.age = age;\n        this.hunger = 5;\n    }\n\n    public void feed() {\n        hunger = Math.max(0, hunger - 3);\n    }\n\n    public void play() {\n        hunger = Math.min(10, hunger + 2);\n    }\n\n    public String getStatus() {\n        if (hunger < 4) return \"happy\";\n        if (hunger <= 7) return \"okay\";\n        return \"hungry\";\n    }\n\n    public String toString() {\n        return name + \" the \" + species + \" (age \" + age + \") - \" + getStatus();\n    }\n\n    public static void main(String[] args) {\n        Pet p = new Pet(\"Buddy\", \"Dog\", 3);\n        System.out.println(p);\n        p.feed();\n        System.out.println(p);\n        p.play();\n        p.play();\n        p.play();\n        System.out.println(p);\n    }\n}",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u5e5",
+    "title": "GameCharacter Class",
+    "description": "Create a `GameCharacter` class with:\n- Private instance variables: `name` (String), `health` (int, max 100), `attackPower` (int)\n- A constructor that takes name and attackPower (health starts at 100)\n- `attack(GameCharacter other)` — deals this character's attackPower as damage to other\n- `takeDamage(int damage)` — reduces health by damage (minimum 0)\n- `heal(int amount)` — increases health by amount (maximum 100)\n- `isAlive()` — returns true if health > 0\n- `toString()` — returns `\"Name [HP: health/100] (ATK: attackPower)\"`\n\nCreate two characters, have them fight, and show the results.\n\n**Challenge:** This exercise uses objects interacting with each other!",
+    "starterCode": "public class GameCharacter {\n    // Your code here\n\n    public static void main(String[] args) {\n        GameCharacter hero = new GameCharacter(\"Hero\", 25);\n        GameCharacter villain = new GameCharacter(\"Villain\", 30);\n        System.out.println(hero);\n        System.out.println(villain);\n        hero.attack(villain);\n        villain.attack(hero);\n        System.out.println(hero);\n        System.out.println(villain);\n        hero.heal(10);\n        System.out.println(hero);\n    }\n}",
+    "expectedOutput": "Hero [HP: 100/100] (ATK: 25)\nVillain [HP: 100/100] (ATK: 30)\nHero [HP: 70/100] (ATK: 25)\nVillain [HP: 75/100] (ATK: 25)\nHero [HP: 80/100] (ATK: 25)",
+    "hints": [
+      "The attack() method should call `other.takeDamage(this.attackPower)` — one object calling a method on another!",
+      "In takeDamage(), use `health = Math.max(0, health - damage)` to prevent negative health",
+      "In heal(), use `health = Math.min(100, health + amount)` to cap at 100"
+    ],
+    "solution": "public class GameCharacter {\n    private String name;\n    private int health;\n    private int attackPower;\n\n    public GameCharacter(String name, int attackPower) {\n        this.name = name;\n        this.health = 100;\n        this.attackPower = attackPower;\n    }\n\n    public void attack(GameCharacter other) {\n        other.takeDamage(this.attackPower);\n    }\n\n    public void takeDamage(int damage) {\n        health = Math.max(0, health - damage);\n    }\n\n    public void heal(int amount) {\n        health = Math.min(100, health + amount);\n    }\n\n    public boolean isAlive() {\n        return health > 0;\n    }\n\n    public String toString() {\n        return name + \" [HP: \" + health + \"/100] (ATK: \" + attackPower + \")\";\n    }\n\n    public static void main(String[] args) {\n        GameCharacter hero = new GameCharacter(\"Hero\", 25);\n        GameCharacter villain = new GameCharacter(\"Villain\", 30);\n        System.out.println(hero);\n        System.out.println(villain);\n        hero.attack(villain);\n        villain.attack(hero);\n        System.out.println(hero);\n        System.out.println(villain);\n        hero.heal(10);\n        System.out.println(hero);\n    }\n}",
+    "difficulty": "hard"
+  }
+]

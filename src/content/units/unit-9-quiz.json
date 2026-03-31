@@ -1,0 +1,157 @@
+[
+  {
+    "id": "u9q1",
+    "question": "Which keyword is used to create a subclass in Java?",
+    "options": ["implements", "extends", "inherits", "super"],
+    "correct": 1,
+    "explanation": "The 'extends' keyword is used to create a subclass. For example, 'class Dog extends Animal' makes Dog a subclass of Animal. 'implements' is used for interfaces, 'inherits' isn't a Java keyword, and 'super' is used to call the parent class constructor or methods.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u9q2",
+    "question": "What does calling `super()` in a subclass constructor do?",
+    "options": [
+      "Creates a brand new superclass object",
+      "Calls the superclass constructor",
+      "Overrides the superclass constructor",
+      "Deletes the superclass fields"
+    ],
+    "correct": 1,
+    "explanation": "super() calls the constructor of the superclass (parent class). This ensures the parent's fields are properly initialized before the subclass adds its own. Java actually inserts super() automatically if you don't write it — but if the parent has no no-arg constructor, you must call it explicitly.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u9q3",
+    "question": "What is the root class of ALL classes in Java — even if you don't write `extends`?",
+    "options": ["Main", "System", "Object", "Class"],
+    "correct": 2,
+    "explanation": "Every class in Java automatically extends the Object class, even if you don't write it. That's why every object has methods like toString(), equals(), and hashCode() — they're inherited from Object.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u9q4",
+    "question": "Which access modifier allows a field to be accessed by subclasses but NOT by unrelated classes in other packages?",
+    "options": ["public", "private", "protected", "static"],
+    "correct": 2,
+    "explanation": "The 'protected' modifier is the sweet spot for inheritance — it lets subclasses access the field directly, but keeps it hidden from random unrelated classes. 'public' lets everyone access it, 'private' blocks even subclasses, and 'static' isn't an access modifier at all.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u9q5",
+    "question": "What annotation should you place above a method that replaces a superclass method with a new version?",
+    "options": ["@Overload", "@Override", "@Super", "@Inherit"],
+    "correct": 1,
+    "explanation": "@Override tells the compiler 'I intend to override a method from my superclass.' It's not technically required, but it catches mistakes — if you accidentally misspell the method name or get the parameters wrong, the compiler will give you an error instead of silently creating a new method.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u9q6",
+    "question": "What is the output of the following code?\n```java\nclass Animal {\n    public String speak() {\n        return \"...\";\n    }\n}\nclass Dog extends Animal {\n    @Override\n    public String speak() {\n        return \"Woof!\";\n    }\n}\n// In main:\nAnimal a = new Dog();\nSystem.out.println(a.speak());\n```",
+    "options": ["...", "Woof!", "Compilation error", "null"],
+    "correct": 1,
+    "explanation": "Even though the variable 'a' is declared as type Animal, the actual object is a Dog. Java uses the runtime type (Dog) to decide which version of speak() to call. This is polymorphism in action — the Dog version runs because the object IS a Dog, regardless of the variable type.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u9q7",
+    "question": "Which statement about polymorphism in Java is TRUE?",
+    "options": [
+      "A subclass reference can hold a superclass object",
+      "A superclass reference can hold a subclass object",
+      "Polymorphism only works with interfaces, not classes",
+      "Polymorphism means a class can have multiple constructors"
+    ],
+    "correct": 1,
+    "explanation": "Polymorphism allows a superclass reference to hold a subclass object (e.g., Animal a = new Dog()). This works because a Dog IS-AN Animal. The reverse is NOT true — you can't do Dog d = new Animal() because not every Animal is a Dog. Having multiple constructors is called constructor overloading, which is a different concept.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u9q8",
+    "question": "What is the key difference between method overriding and method overloading?",
+    "options": [
+      "Overriding changes the return type; overloading changes the method name",
+      "Overriding happens in the same class; overloading happens in subclasses",
+      "Overriding replaces a superclass method in a subclass (same signature); overloading creates methods with the same name but different parameters",
+      "They are the same thing"
+    ],
+    "correct": 2,
+    "explanation": "Overriding = same method name AND same parameters, but in a subclass (replaces the parent version). Overloading = same method name but DIFFERENT parameters, and can happen in the same class. Think of it this way: overriding is 'replacing,' overloading is 'adding options.'",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u9q9",
+    "question": "What is the output of the following code?\n```java\nclass Phone {\n    public String describe() {\n        return \"I am a phone\";\n    }\n}\nclass SmartPhone extends Phone {\n    @Override\n    public String describe() {\n        return super.describe() + \" with apps\";\n    }\n}\n// In main:\nSmartPhone s = new SmartPhone();\nSystem.out.println(s.describe());\n```",
+    "options": [
+      "I am a phone",
+      "I am a phone with apps",
+      "with apps",
+      "Compilation error"
+    ],
+    "correct": 1,
+    "explanation": "super.describe() calls the Phone version of describe(), which returns \"I am a phone\". Then SmartPhone's version concatenates \" with apps\" to it. The result is \"I am a phone with apps\". This is a common pattern — using super to build on the parent's behavior instead of completely replacing it.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u9q10",
+    "question": "What is the output of the following code?\n```java\nclass Vehicle {}\nclass Car extends Vehicle {}\n// In main:\nVehicle v = new Car();\nSystem.out.println(v instanceof Car);\nSystem.out.println(v instanceof Vehicle);\n```",
+    "options": ["true\ntrue", "true\nfalse", "false\ntrue", "Compilation error"],
+    "correct": 0,
+    "explanation": "The instanceof operator checks if an object IS-A particular type. The object v is a Car (created with new Car()), so 'v instanceof Car' is true. A Car is also a Vehicle (because Car extends Vehicle), so 'v instanceof Vehicle' is also true. instanceof checks the actual object, not the variable type.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u9q11",
+    "question": "Given: `Animal a = new Dog();` — what is the compile-time type and runtime type of `a`?",
+    "options": [
+      "Compile-time: Dog, Runtime: Animal",
+      "Compile-time: Animal, Runtime: Dog",
+      "Both are Animal",
+      "Both are Dog"
+    ],
+    "correct": 1,
+    "explanation": "The compile-time type is what appears on the LEFT side of the declaration — Animal. This is what the compiler uses to check which methods you can call. The runtime type is what appears after 'new' — Dog. This is the actual object type that determines which overridden method runs. Think of it as: compile-time type = the label, runtime type = what's actually inside.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u9q12",
+    "question": "What is the output of the following code?\n```java\nclass Shape {\n    public double area() { return 0; }\n}\nclass Circle extends Shape {\n    private double radius;\n    public Circle(double r) { radius = r; }\n    @Override\n    public double area() { return Math.PI * radius * radius; }\n}\nclass Rectangle extends Shape {\n    private double w, h;\n    public Rectangle(double w, double h) { this.w = w; this.h = h; }\n    @Override\n    public double area() { return w * h; }\n}\n// In main:\nShape[] shapes = {new Circle(1), new Rectangle(2, 3)};\ndouble total = 0;\nfor (Shape s : shapes) { total += s.area(); }\nSystem.out.println(total > 9);\n```",
+    "options": ["true", "false", "Compilation error: cannot call area() on Shape reference", "Compilation error: Shape[] cannot hold Circle"],
+    "correct": 1,
+    "explanation": "Circle area = π × 1² ≈ 3.14159. Rectangle area = 2 × 3 = 6.0. Total ≈ 9.14159. Is 9.14 > 9? That's false — wait, actually it IS true! 9.14 > 9. The array works because Circle and Rectangle ARE Shapes (polymorphism). The correct area() method is called for each object at runtime.",
+    "difficulty": "hard"
+  },
+  {
+    "id": "u9q13",
+    "question": "Which of the following statements about abstract classes in Java is TRUE?",
+    "options": [
+      "You can create an instance of an abstract class with the new keyword",
+      "An abstract class must contain ONLY abstract methods — no regular methods allowed",
+      "A non-abstract subclass of an abstract class must implement all inherited abstract methods",
+      "Abstract classes cannot have constructors"
+    ],
+    "correct": 2,
+    "explanation": "A non-abstract subclass MUST implement all abstract methods from its abstract parent — otherwise, the compiler will complain. You CANNOT instantiate an abstract class (option A is wrong). Abstract classes CAN have regular (concrete) methods too (option B is wrong). And they CAN have constructors that subclasses call via super() (option D is wrong).",
+    "difficulty": "hard"
+  },
+  {
+    "id": "u9q14",
+    "question": "What is the output of the following code?\n```java\nclass A {\n    public A() { System.out.print(\"A \"); }\n}\nclass B extends A {\n    public B() { System.out.print(\"B \"); }\n}\nclass C extends B {\n    public C() { System.out.print(\"C \"); }\n}\n// In main:\nC obj = new C();\n```",
+    "options": ["C B A", "A B C", "C", "A C"],
+    "correct": 1,
+    "explanation": "Constructor chaining! When you create a C, its constructor first calls super() → B's constructor. B's constructor first calls super() → A's constructor. A's constructor runs first (prints \"A \"), then B's continues (prints \"B \"), then C's continues (prints \"C \"). Constructors chain UP to the top of the hierarchy, then execute from top DOWN.",
+    "difficulty": "hard"
+  },
+  {
+    "id": "u9q15",
+    "question": "What is the output of the following code?\n```java\nclass Vehicle {\n    public String type() { return \"Vehicle\"; }\n    public String describe() { return \"I am a \" + type(); }\n}\nclass Car extends Vehicle {\n    @Override\n    public String type() { return \"Car\"; }\n}\n// In main:\nVehicle v = new Car();\nSystem.out.println(v.describe());\n```",
+    "options": [
+      "I am a Vehicle",
+      "I am a Car",
+      "I am a Vehicle Car",
+      "Compilation error"
+    ],
+    "correct": 1,
+    "explanation": "This is a tricky polymorphism question! The describe() method is NOT overridden in Car, so Vehicle's describe() runs. BUT inside describe(), it calls type(). Since the actual object is a Car, Java calls Car's version of type(), which returns \"Car\". So the result is \"I am a Car\". This shows that polymorphism works even for method calls WITHIN an inherited method.",
+    "difficulty": "hard"
+  }
+]

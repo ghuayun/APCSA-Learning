@@ -1,0 +1,72 @@
+[
+  {
+    "id": "u6e1",
+    "title": "Find the Largest Element",
+    "description": "Write a method `findMax` that takes an array of integers and returns the largest value.\n\nGiven the array `{23, 7, 42, 15, 38, 4}`, your method should return 42.\n\n**Rules:**\n- Do NOT use Arrays.sort() or any library methods\n- Use a loop to compare each element",
+    "starterCode": "public class Main {\n    public static int findMax(int[] arr) {\n        // Your code here\n    }\n\n    public static void main(String[] args) {\n        int[] nums = {23, 7, 42, 15, 38, 4};\n        System.out.println(findMax(nums));\n    }\n}",
+    "expectedOutput": "42",
+    "hints": [
+      "Start by assuming the first element is the max: int max = arr[0];",
+      "Loop through the rest of the array (start at index 1) and update max whenever you find something bigger",
+      "Use an if statement: if (arr[i] > max) { max = arr[i]; }"
+    ],
+    "solution": "public class Main {\n    public static int findMax(int[] arr) {\n        int max = arr[0];\n        for (int i = 1; i < arr.length; i++) {\n            if (arr[i] > max) {\n                max = arr[i];\n            }\n        }\n        return max;\n    }\n\n    public static void main(String[] args) {\n        int[] nums = {23, 7, 42, 15, 38, 4};\n        System.out.println(findMax(nums));\n    }\n}",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u6e2",
+    "title": "Reverse an Array",
+    "description": "Write a method `reverse` that takes an array of integers and reverses it **in place** (modifying the original array, not creating a new one).\n\nGiven `{1, 2, 3, 4, 5}`, the array should become `{5, 4, 3, 2, 1}`.\n\nPrint each element separated by a space to verify.\n\n**Hint:** Swap elements from the outside in — swap first with last, second with second-to-last, etc.",
+    "starterCode": "public class Main {\n    public static void reverse(int[] arr) {\n        // Your code here\n    }\n\n    public static void main(String[] args) {\n        int[] nums = {1, 2, 3, 4, 5};\n        reverse(nums);\n        for (int i = 0; i < nums.length; i++) {\n            if (i > 0) System.out.print(\" \");\n            System.out.print(nums[i]);\n        }\n        System.out.println();\n    }\n}",
+    "expectedOutput": "5 4 3 2 1",
+    "hints": [
+      "Use two pointers: one starting at the beginning (left = 0) and one at the end (right = arr.length - 1)",
+      "Swap arr[left] and arr[right], then move both pointers inward (left++, right--)",
+      "Stop when left >= right — you've met in the middle. Use a temp variable for swapping!"
+    ],
+    "solution": "public class Main {\n    public static void reverse(int[] arr) {\n        int left = 0;\n        int right = arr.length - 1;\n        while (left < right) {\n            int temp = arr[left];\n            arr[left] = arr[right];\n            arr[right] = temp;\n            left++;\n            right--;\n        }\n    }\n\n    public static void main(String[] args) {\n        int[] nums = {1, 2, 3, 4, 5};\n        reverse(nums);\n        for (int i = 0; i < nums.length; i++) {\n            if (i > 0) System.out.print(\" \");\n            System.out.print(nums[i]);\n        }\n        System.out.println();\n    }\n}",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u6e3",
+    "title": "Count Even Numbers",
+    "description": "Write a method `countEvens` that takes an array of integers and returns how many of them are even.\n\nGiven `{3, 8, 12, 5, 7, 20, 1, 4}`, the method should return 4 (because 8, 12, 20, and 4 are even).\n\n**Reminder:** A number is even if `number % 2 == 0`.",
+    "starterCode": "public class Main {\n    public static int countEvens(int[] arr) {\n        // Your code here\n    }\n\n    public static void main(String[] args) {\n        int[] nums = {3, 8, 12, 5, 7, 20, 1, 4};\n        System.out.println(countEvens(nums));\n    }\n}",
+    "expectedOutput": "4",
+    "hints": [
+      "Create a counter variable starting at 0",
+      "Use an enhanced for loop: for (int num : arr)",
+      "Inside the loop, check if num % 2 == 0 and increment the counter if so"
+    ],
+    "solution": "public class Main {\n    public static int countEvens(int[] arr) {\n        int count = 0;\n        for (int num : arr) {\n            if (num % 2 == 0) {\n                count++;\n            }\n        }\n        return count;\n    }\n\n    public static void main(String[] args) {\n        int[] nums = {3, 8, 12, 5, 7, 20, 1, 4};\n        System.out.println(countEvens(nums));\n    }\n}",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u6e4",
+    "title": "Linear Search",
+    "description": "Write a method `linearSearch` that takes an array of integers and a target value. It should return the **index** of the first occurrence of the target, or **-1** if the target is not found.\n\nTest with:\n- Searching for 30 in `{10, 20, 30, 40, 50}` → should print 2\n- Searching for 99 in the same array → should print -1",
+    "starterCode": "public class Main {\n    public static int linearSearch(int[] arr, int target) {\n        // Your code here\n    }\n\n    public static void main(String[] args) {\n        int[] nums = {10, 20, 30, 40, 50};\n        System.out.println(linearSearch(nums, 30));\n        System.out.println(linearSearch(nums, 99));\n    }\n}",
+    "expectedOutput": "2\n-1",
+    "hints": [
+      "Use a regular for loop (you need the index!) — for (int i = 0; i < arr.length; i++)",
+      "If arr[i] == target, return i immediately — you found it!",
+      "If the loop finishes without finding the target, return -1 after the loop"
+    ],
+    "solution": "public class Main {\n    public static int linearSearch(int[] arr, int target) {\n        for (int i = 0; i < arr.length; i++) {\n            if (arr[i] == target) {\n                return i;\n            }\n        }\n        return -1;\n    }\n\n    public static void main(String[] args) {\n        int[] nums = {10, 20, 30, 40, 50};\n        System.out.println(linearSearch(nums, 30));\n        System.out.println(linearSearch(nums, 99));\n    }\n}",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u6e5",
+    "title": "Remove Duplicates",
+    "description": "Write a method `removeDuplicates` that takes a sorted array of integers and returns a NEW array containing only the unique values (no duplicates).\n\nGiven `{1, 1, 2, 3, 3, 3, 4, 5, 5}`, return `{1, 2, 3, 4, 5}`.\n\nPrint the result array elements separated by spaces.\n\n**Challenge:** The input array is sorted, which makes this easier — duplicates are always next to each other!",
+    "starterCode": "public class Main {\n    public static int[] removeDuplicates(int[] arr) {\n        // Your code here\n    }\n\n    public static void main(String[] args) {\n        int[] nums = {1, 1, 2, 3, 3, 3, 4, 5, 5};\n        int[] unique = removeDuplicates(nums);\n        for (int i = 0; i < unique.length; i++) {\n            if (i > 0) System.out.print(\" \");\n            System.out.print(unique[i]);\n        }\n        System.out.println();\n    }\n}",
+    "expectedOutput": "1 2 3 4 5",
+    "hints": [
+      "First pass: count the unique elements by checking if arr[i] != arr[i-1]",
+      "Create a new array of that size, then do a second pass to fill it with unique values",
+      "Since the array is sorted, a value is unique (not a duplicate) if it's different from the one before it. The first element is always unique."
+    ],
+    "solution": "public class Main {\n    public static int[] removeDuplicates(int[] arr) {\n        if (arr.length == 0) return new int[0];\n        int uniqueCount = 1;\n        for (int i = 1; i < arr.length; i++) {\n            if (arr[i] != arr[i - 1]) {\n                uniqueCount++;\n            }\n        }\n        int[] result = new int[uniqueCount];\n        result[0] = arr[0];\n        int index = 1;\n        for (int i = 1; i < arr.length; i++) {\n            if (arr[i] != arr[i - 1]) {\n                result[index] = arr[i];\n                index++;\n            }\n        }\n        return result;\n    }\n\n    public static void main(String[] args) {\n        int[] nums = {1, 1, 2, 3, 3, 3, 4, 5, 5};\n        int[] unique = removeDuplicates(nums);\n        for (int i = 0; i < unique.length; i++) {\n            if (i > 0) System.out.print(\" \");\n            System.out.print(unique[i]);\n        }\n        System.out.println();\n    }\n}",
+    "difficulty": "hard"
+  }
+]

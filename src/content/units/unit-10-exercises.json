@@ -1,0 +1,72 @@
+[
+  {
+    "id": "u10e1",
+    "title": "Factorial Calculator",
+    "description": "Write a recursive method called `factorial` that computes n! (n factorial).\n\nRemember: n! = n × (n-1) × (n-2) × ... × 2 × 1, and 0! = 1 by definition.\n\nFor example:\n- factorial(5) → 120 (because 5 × 4 × 3 × 2 × 1 = 120)\n- factorial(0) → 1\n- factorial(7) → 5040\n\nYour method should call itself — no loops allowed!",
+    "starterCode": "public class Main {\n    public static int factorial(int n) {\n        // Base case: what value of n should stop the recursion?\n        // Recursive case: how can you express factorial(n) using factorial(n-1)?\n        return 0; // Replace this\n    }\n\n    public static void main(String[] args) {\n        System.out.println(factorial(5));\n        System.out.println(factorial(0));\n        System.out.println(factorial(7));\n    }\n}",
+    "expectedOutput": "120\n1\n5040",
+    "hints": [
+      "What's the simplest factorial you know the answer to without calculating? That's your base case! (Hint: 0! = 1)",
+      "The recursive pattern is: factorial(n) = n * factorial(n - 1). You're trusting that factorial(n-1) will give you the right answer.",
+      "Base case: if (n == 0) return 1; Recursive case: return n * factorial(n - 1);"
+    ],
+    "solution": "public class Main {\n    public static int factorial(int n) {\n        if (n == 0) return 1;\n        return n * factorial(n - 1);\n    }\n\n    public static void main(String[] args) {\n        System.out.println(factorial(5));\n        System.out.println(factorial(0));\n        System.out.println(factorial(7));\n    }\n}",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u10e2",
+    "title": "Fibonacci with Tracing",
+    "description": "Write a recursive method called `fib` that computes the nth Fibonacci number AND prints a trace message each time it is called.\n\nThe Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, ...\n- fib(0) = 0\n- fib(1) = 1\n- fib(n) = fib(n-1) + fib(n-2) for n ≥ 2\n\nBefore doing any computation, print: fib(n) called (where n is the actual argument).\n\nThis tracing will help you SEE how many times the method gets called — it's more than you think!",
+    "starterCode": "public class Main {\n    public static int fib(int n) {\n        // First, print the trace message: \"fib(\" + n + \") called\"\n        // Then handle base cases: fib(0) = 0, fib(1) = 1\n        // Finally, recursive case: fib(n) = fib(n-1) + fib(n-2)\n        return 0; // Replace this\n    }\n\n    public static void main(String[] args) {\n        int result = fib(4);\n        System.out.println(\"Result: \" + result);\n    }\n}",
+    "expectedOutput": "fib(4) called\nfib(3) called\nfib(2) called\nfib(1) called\nfib(0) called\nfib(1) called\nfib(2) called\nfib(1) called\nfib(0) called\nResult: 3",
+    "hints": [
+      "Start every call with: System.out.println(\"fib(\" + n + \") called\"); — this goes BEFORE the base case check.",
+      "You need TWO base cases: if n is 0 return 0, if n is 1 return 1. Or combine them: if (n <= 1) return n;",
+      "Full method: print the trace, then if (n <= 1) return n; then return fib(n - 1) + fib(n - 2); Notice how fib(4) generates 9 calls total — that's the exponential blowup!"
+    ],
+    "solution": "public class Main {\n    public static int fib(int n) {\n        System.out.println(\"fib(\" + n + \") called\");\n        if (n <= 1) return n;\n        return fib(n - 1) + fib(n - 2);\n    }\n\n    public static void main(String[] args) {\n        int result = fib(4);\n        System.out.println(\"Result: \" + result);\n    }\n}",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u10e3",
+    "title": "Reverse a String Recursively",
+    "description": "Write a recursive method called `reverse` that takes a String and returns it backwards.\n\nFor example:\n- reverse(\"hello\") → \"olleh\"\n- reverse(\"Java\") → \"avaJ\"\n- reverse(\"a\") → \"a\"\n\nYou cannot use loops, StringBuilder, or any built-in reverse methods. Only recursion, charAt(), and substring()!\n\nThink about it this way: reversing \"hello\" is the same as reversing \"ello\" and then sticking 'h' at the end.",
+    "starterCode": "public class Main {\n    public static String reverse(String s) {\n        // Base case: what's the simplest string to reverse?\n        // Recursive case: peel off the first char and put it at the end\n        return \"\"; // Replace this\n    }\n\n    public static void main(String[] args) {\n        System.out.println(reverse(\"hello\"));\n        System.out.println(reverse(\"Java\"));\n        System.out.println(reverse(\"a\"));\n    }\n}",
+    "expectedOutput": "olleh\navaJ\na",
+    "hints": [
+      "Base case: if the string has 0 or 1 characters, it's already reversed — just return it as-is.",
+      "s.charAt(0) gives you the first character. s.substring(1) gives you everything AFTER the first character. To reverse, you want to reverse the rest and then add the first character at the end.",
+      "return reverse(s.substring(1)) + s.charAt(0); This recursively reverses everything after the first character, then appends the first character to the end."
+    ],
+    "solution": "public class Main {\n    public static String reverse(String s) {\n        if (s.length() <= 1) return s;\n        return reverse(s.substring(1)) + s.charAt(0);\n    }\n\n    public static void main(String[] args) {\n        System.out.println(reverse(\"hello\"));\n        System.out.println(reverse(\"Java\"));\n        System.out.println(reverse(\"a\"));\n    }\n}",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u10e4",
+    "title": "Sum of Digits",
+    "description": "Write a recursive method called `sumDigits` that takes a non-negative integer and returns the sum of all its digits.\n\nFor example:\n- sumDigits(1234) → 10 (because 1 + 2 + 3 + 4 = 10)\n- sumDigits(9) → 9\n- sumDigits(505) → 10 (because 5 + 0 + 5 = 10)\n\nHint: You can extract the last digit of a number with n % 10, and remove the last digit with n / 10.\n\nNo converting to String allowed — use math only!",
+    "starterCode": "public class Main {\n    public static int sumDigits(int n) {\n        // Base case: what's the simplest number to sum digits of?\n        // Recursive case: grab the last digit (n % 10) and add it\n        //                 to the sum of the remaining digits (n / 10)\n        return 0; // Replace this\n    }\n\n    public static void main(String[] args) {\n        System.out.println(sumDigits(1234));\n        System.out.println(sumDigits(9));\n        System.out.println(sumDigits(505));\n    }\n}",
+    "expectedOutput": "10\n9\n10",
+    "hints": [
+      "If the number is a single digit (less than 10), the sum is just the number itself — that's your base case!",
+      "n % 10 gives the last digit. n / 10 gives the number without its last digit. For example: 1234 % 10 = 4, and 1234 / 10 = 123.",
+      "return n % 10 + sumDigits(n / 10); This grabs the last digit and adds it to the sum of all the other digits. Base case: if (n < 10) return n;"
+    ],
+    "solution": "public class Main {\n    public static int sumDigits(int n) {\n        if (n < 10) return n;\n        return n % 10 + sumDigits(n / 10);\n    }\n\n    public static void main(String[] args) {\n        System.out.println(sumDigits(1234));\n        System.out.println(sumDigits(9));\n        System.out.println(sumDigits(505));\n    }\n}",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u10e5",
+    "title": "Power Function",
+    "description": "Write a recursive method called `power` that computes x raised to the nth power (x^n).\n\nYour method must handle THREE cases:\n1. Any number to the power of 0 is 1 (base case)\n2. Positive exponents: x^n = x × x^(n-1)\n3. Negative exponents: x^(-n) = 1 / x^n\n\nFor example:\n- power(2, 10) → 1024.0\n- power(3, 0) → 1.0\n- power(2, -3) → 0.125 (because 1/8 = 0.125)\n- power(5, 3) → 125.0\n\nUse `double` for the base and return type so negative exponents work correctly.",
+    "starterCode": "public class Main {\n    public static double power(double base, int exp) {\n        // Base case: anything to the power of 0 is 1\n        // Handle negative exponents: x^(-n) = 1 / x^n\n        // Recursive case: x^n = x * x^(n-1)\n        return 0; // Replace this\n    }\n\n    public static void main(String[] args) {\n        System.out.println(power(2, 10));\n        System.out.println(power(3, 0));\n        System.out.println(power(2, -3));\n        System.out.println(power(5, 3));\n    }\n}",
+    "expectedOutput": "1024.0\n1.0\n0.125\n125.0",
+    "hints": [
+      "Start with the base case: if exp == 0, return 1. Then think about what to do when exp is negative.",
+      "For negative exponents, flip it: power(base, -3) is the same as 1.0 / power(base, 3). You only need to handle this once, then let the positive case handle the rest.",
+      "Three cases: if (exp == 0) return 1; if (exp < 0) return 1.0 / power(base, -exp); return base * power(base, exp - 1);"
+    ],
+    "solution": "public class Main {\n    public static double power(double base, int exp) {\n        if (exp == 0) return 1;\n        if (exp < 0) return 1.0 / power(base, -exp);\n        return base * power(base, exp - 1);\n    }\n\n    public static void main(String[] args) {\n        System.out.println(power(2, 10));\n        System.out.println(power(3, 0));\n        System.out.println(power(2, -3));\n        System.out.println(power(5, 3));\n    }\n}",
+    "difficulty": "hard"
+  }
+]

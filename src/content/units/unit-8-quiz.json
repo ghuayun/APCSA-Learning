@@ -1,0 +1,137 @@
+[
+  {
+    "id": "u8q1",
+    "question": "Which of the following correctly declares and creates a 2D array with 3 rows and 4 columns in Java?",
+    "options": [
+      "int[][] grid = new int[3][4];",
+      "int[] grid = new int[3][4];",
+      "int[][] grid = new int[4, 3];",
+      "int[3][4] grid = new int[][];"
+    ],
+    "correct": 0,
+    "explanation": "In Java, a 2D array is declared with two sets of brackets: int[][]. When creating it with 'new', the first number is the number of rows and the second is the number of columns. Think of it like a spreadsheet — new int[3][4] gives you 3 rows and 4 columns. Option B only has one set of brackets in the type, C uses a comma instead of separate brackets, and D puts the dimensions in the wrong place.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u8q2",
+    "question": "What is the output of the following code?\n```java\nint[][] table = {{10, 20}, {30, 40}, {50, 60}};\ntable[2][1] = table[0][0] + table[1][1];\nSystem.out.println(table[2][1]);\n```",
+    "options": ["60", "50", "70", "30"],
+    "correct": 1,
+    "explanation": "Let's trace it! table[0][0] is 10 (first row, first column) and table[1][1] is 40 (second row, second column). Adding them gives 10 + 40 = 50. This value replaces whatever was at table[2][1] (which was originally 60). So the output is 50. When working with 2D arrays, always remember: first index = row, second index = column!",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u8q3",
+    "question": "What is the output of the following code?\n```java\nint[][] grid = {{5, 10, 15}, {20, 25, 30}, {35, 40, 45}};\nSystem.out.println(grid[1][2]);\n```",
+    "options": ["25", "10", "30", "15"],
+    "correct": 2,
+    "explanation": "Think of the 2D array like a grid in a video game. grid[1] gets you the second row (remember, indexing starts at 0!), which is {20, 25, 30}. Then [2] grabs the third element in that row, which is 30. A common mistake is forgetting that indices start at 0 — grid[1][2] does NOT mean 'first row, second column' in the everyday counting sense.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u8q4",
+    "question": "What is the output of the following code?\n```java\nString[][] seats = {{\"Amy\", \"Ben\"}, {\"Cal\", \"Dee\"}, {\"Eve\", \"Fay\"}};\nSystem.out.println(seats[2][0] + \" and \" + seats[0][1]);\n```",
+    "options": ["Cal and Ben", "Eve and Ben", "Amy and Dee", "Eve and Amy"],
+    "correct": 1,
+    "explanation": "Picture a classroom seating chart with 3 rows. seats[2][0] goes to row index 2 (the third row: {\"Eve\", \"Fay\"}) and column index 0, giving us \"Eve\". seats[0][1] goes to row index 0 (the first row: {\"Amy\", \"Ben\"}) and column index 1, giving us \"Ben\". So the output is \"Eve and Ben\". 2D arrays work with any type, not just ints!",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u8q5",
+    "question": "What is the output of the following code?\n```java\nint[][] arr = {{1, 2}, {3, 4}, {5, 6}};\nfor (int r = 0; r < arr.length; r++) {\n    for (int c = 0; c < arr[r].length; c++) {\n        System.out.print(arr[r][c] + \" \");\n    }\n}\n```",
+    "options": ["1 3 5 2 4 6", "1 2 3 4 5 6", "6 5 4 3 2 1", "2 4 6 1 3 5"],
+    "correct": 1,
+    "explanation": "This is a classic row-major traversal — the outer loop goes through each row, and the inner loop goes through each column within that row. So we read left-to-right, top-to-bottom, just like reading a book! Row 0: 1 2, Row 1: 3 4, Row 2: 5 6. Output: 1 2 3 4 5 6. Row-major order is the standard way to traverse a 2D array on the AP exam.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u8q6",
+    "question": "What is the output of the following code?\n```java\nint[][] arr = {{1, 2, 3}, {4, 5, 6}};\nString result = \"\";\nfor (int c = 0; c < arr[0].length; c++) {\n    for (int r = 0; r < arr.length; r++) {\n        result += arr[r][c] + \" \";\n    }\n}\nSystem.out.println(result.trim());\n```",
+    "options": ["1 2 3 4 5 6", "1 4 2 5 3 6", "3 6 2 5 1 4", "4 5 6 1 2 3"],
+    "correct": 1,
+    "explanation": "This is column-major traversal — notice the outer loop uses 'c' (columns) and the inner loop uses 'r' (rows). Instead of reading like a book (left to right, row by row), we're reading top to bottom, then moving to the next column. Column 0: 1, 4. Column 1: 2, 5. Column 2: 3, 6. Result: 1 4 2 5 3 6. The key giveaway is that the column variable is in the outer loop!",
+    "difficulty": "hard"
+  },
+  {
+    "id": "u8q7",
+    "question": "What is the output of the following code?\n```java\nint[][] grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};\nint count = 0;\nfor (int r = 0; r < grid.length; r++) {\n    for (int c = 0; c < grid[r].length; c++) {\n        if (grid[r][c] % 2 == 0) {\n            count++;\n        }\n    }\n}\nSystem.out.println(count);\n```",
+    "options": ["3", "4", "5", "6"],
+    "correct": 1,
+    "explanation": "We're counting how many even numbers are in the grid. Let's check each element: 1(odd), 2(even), 3(odd), 4(even), 5(odd), 6(even), 7(odd), 8(even), 9(odd). That's 4 even numbers! The % operator gives the remainder when dividing by 2 — if it's 0, the number is even. This is a super common pattern for filtering elements in a 2D array.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u8q8",
+    "question": "What is the output of the following code?\n```java\nint[][] grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};\nint sum = 0;\nfor (int r = 0; r < grid.length; r++) {\n    for (int c = 0; c < grid[r].length; c++) {\n        if (r == c) {\n            sum += grid[r][c];\n        }\n    }\n}\nSystem.out.println(sum);\n```",
+    "options": ["12", "15", "45", "6"],
+    "correct": 1,
+    "explanation": "When r == c, we're on the main diagonal of the grid — like drawing a line from the top-left to the bottom-right corner. The diagonal elements are: grid[0][0] = 1, grid[1][1] = 5, grid[2][2] = 9. Their sum is 1 + 5 + 9 = 15. This is a classic algorithm for square matrices. Fun fact: in math, this sum is called the 'trace' of a matrix!",
+    "difficulty": "hard"
+  },
+  {
+    "id": "u8q9",
+    "question": "What is the output of the following code?\n```java\nint[][] ragged = new int[3][];\nragged[0] = new int[]{1, 2, 3};\nragged[1] = new int[]{4, 5};\nragged[2] = new int[]{6, 7, 8, 9};\nSystem.out.println(ragged[2].length);\n```",
+    "options": ["3", "2", "4", "9"],
+    "correct": 2,
+    "explanation": "This is a ragged (or jagged) array — the rows don't all have the same number of columns, kind of like how your playlists can have different numbers of songs! Row 0 has 3 elements, row 1 has 2 elements, and row 2 has 4 elements. ragged[2].length asks for the length of row 2, which is {6, 7, 8, 9} — that's 4 elements. In Java, each row of a 2D array is actually its own separate 1D array, so they can have different lengths.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u8q10",
+    "question": "What is the output of the following code?\n```java\nint[][] scores = {{90, 85, 92}, {78, 88, 95}, {100, 70, 80}};\nint sum = 0;\nfor (int c = 0; c < scores[0].length; c++) {\n    sum += scores[0][c];\n}\nSystem.out.println(sum);\n```",
+    "options": ["261", "267", "250", "268"],
+    "correct": 1,
+    "explanation": "This code calculates the sum of the first row (scores[0]). The loop goes through each column in row 0: scores[0][0] = 90, scores[0][1] = 85, scores[0][2] = 92. Sum = 90 + 85 + 92 = 267. This is a row sum algorithm — super useful for things like calculating a student's total score across all their assignments!",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u8q11",
+    "question": "What is the output of the following code?\n```java\nint[][] data = {{3, 7, 1}, {5, 2, 8}, {4, 6, 9}};\nint colSum = 0;\nfor (int r = 0; r < data.length; r++) {\n    colSum += data[r][2];\n}\nSystem.out.println(colSum);\n```",
+    "options": ["10", "12", "18", "15"],
+    "correct": 2,
+    "explanation": "This code computes the sum of column index 2 (the third column). It loops through every row and grabs the element at column 2: data[0][2] = 1, data[1][2] = 8, data[2][2] = 9. Sum = 1 + 8 + 9 = 18. Notice how for a column sum, the row index changes (in the loop) while the column index stays fixed at 2. This is the opposite pattern of a row sum!",
+    "difficulty": "hard"
+  },
+  {
+    "id": "u8q12",
+    "question": "What does the following method return when called with the given array and a target value of 25?\n```java\npublic static int[] findElement(int[][] arr, int target) {\n    for (int r = 0; r < arr.length; r++) {\n        for (int c = 0; c < arr[r].length; c++) {\n            if (arr[r][c] == target) {\n                return new int[]{r, c};\n            }\n        }\n    }\n    return new int[]{-1, -1};\n}\n```\nCalled with: `arr = {{10, 20}, {30, 25}, {15, 5}}`",
+    "options": ["{1, 0}", "{1, 1}", "{2, 1}", "{-1, -1}"],
+    "correct": 1,
+    "explanation": "The method searches the 2D array row by row for the target value 25. Row 0: 10, 20 — nope. Row 1: 30, 25 — found it at row 1, column 1! So it returns {1, 1}. This is a linear search adapted for 2D arrays. If the target isn't found anywhere, it returns {-1, -1} as a signal. Imagine searching a grid-based game map for a specific item — same idea!",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u8q13",
+    "question": "Which method header correctly accepts a 2D integer array as a parameter?",
+    "options": [
+      "public static void process(int[] grid)",
+      "public static void process(int[][] grid)",
+      "public static void process(int[3][3] grid)",
+      "public static void process(int grid[3])"
+    ],
+    "correct": 1,
+    "explanation": "To pass a 2D array to a method, the parameter type needs two sets of empty brackets: int[][]. You never put specific sizes in the brackets when declaring a parameter — Java figures out the size from the actual array you pass in. Option A only has one set of brackets (that's for a 1D array), and options C and D incorrectly include sizes in the brackets, which isn't valid Java syntax for method parameters.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u8q14",
+    "question": "Given the following code, what does `matrix.length` represent?\n```java\nint[][] matrix = new int[5][8];\n```",
+    "options": [
+      "The total number of elements (40)",
+      "The number of columns (8)",
+      "The number of rows (5)",
+      "The size of each row (8)"
+    ],
+    "correct": 2,
+    "explanation": "In a 2D array, .length gives you the number of rows — think of it as how many 1D arrays are stacked inside the outer array. Here, matrix.length is 5 because there are 5 rows. To get the number of columns, you'd use matrix[0].length, which would be 8. A helpful way to remember: .length on the outer array = rows, .length on an inner array = columns.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u8q15",
+    "question": "What is the output of the following code?\n```java\nint[][] mystery = {{1, 2}, {3, 4, 5}, {6}};\nSystem.out.println(mystery.length + \" \" + mystery[1].length);\n```",
+    "options": ["2 3", "3 2", "6 3", "3 3"],
+    "correct": 3,
+    "explanation": "This is a tricky one because it's a ragged array! mystery.length gives us 3 because there are 3 rows (3 inner arrays). mystery[1].length gives us the length of row 1 specifically, which is {3, 4, 5} — that's 3 elements. So the output is \"3 3\". The sneaky part is that each row has a different length (2, 3, and 1), but we're only asked about the overall row count and the length of row 1. Always check WHICH row's .length is being asked for!",
+    "difficulty": "hard"
+  }
+]

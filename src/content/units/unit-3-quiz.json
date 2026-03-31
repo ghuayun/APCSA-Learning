@@ -1,0 +1,132 @@
+[
+  {
+    "id": "u3q1",
+    "question": "What is the output of the following code?\n```java\nint x = 10;\nint y = 20;\nSystem.out.println(x > y);\n```",
+    "options": ["true", "false", "10", "Error"],
+    "correct": 1,
+    "explanation": "The > operator compares whether x is greater than y. Since 10 is NOT greater than 20, the expression evaluates to false. Comparison operators always return a boolean value (true or false).",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u3q2",
+    "question": "What is the output of the following code?\n```java\nboolean a = true;\nboolean b = false;\nSystem.out.println(a && b);\n```",
+    "options": ["true", "false", "truefalse", "Error"],
+    "correct": 1,
+    "explanation": "The && (AND) operator returns true only when BOTH operands are true. Since b is false, the result is false. Think of it like needing BOTH keys to open a safe — if one key is missing, you can't open it.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u3q3",
+    "question": "What is the output of the following code?\n```java\nint score = 85;\nif (score >= 90) {\n    System.out.println(\"A\");\n} else if (score >= 80) {\n    System.out.println(\"B\");\n} else {\n    System.out.println(\"C\");\n}\n```",
+    "options": ["A", "B", "C", "A\nB"],
+    "correct": 1,
+    "explanation": "Java evaluates if-else-if chains top to bottom and stops at the FIRST true condition. score >= 90 is false (85 < 90), so it moves on. score >= 80 is true (85 >= 80), so it prints \"B\" and skips the else. Even though 85 would also satisfy later conditions, only the first match executes.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u3q4",
+    "question": "What does the `!` operator do in Java?",
+    "options": [
+      "Multiplies by -1",
+      "Flips a boolean value (true becomes false, false becomes true)",
+      "Checks if a value is not null",
+      "Throws an exception"
+    ],
+    "correct": 1,
+    "explanation": "The ! (NOT) operator is a boolean negation operator. It flips true to false and false to true. For example, !true is false and !false is true. It's like flipping a light switch.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u3q5",
+    "question": "What is the output of the following code?\n```java\nint age = 16;\nif (age >= 16) {\n    System.out.println(\"Can drive\");\n}\nif (age >= 18) {\n    System.out.println(\"Can vote\");\n}\n```",
+    "options": ["Can drive", "Can vote", "Can drive\nCan vote", "No output"],
+    "correct": 0,
+    "explanation": "These are two separate if statements (not if-else). Each one is evaluated independently. The first condition (age >= 16) is true, so \"Can drive\" prints. The second condition (age >= 18) is false, so \"Can vote\" does NOT print. If these were connected with else-if, only the first true one would run.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u3q6",
+    "question": "What is the output of the following code?\n```java\nboolean sunny = true;\nboolean warm = false;\nSystem.out.println(sunny || warm);\nSystem.out.println(sunny && warm);\n```",
+    "options": ["true\ntrue", "false\nfalse", "true\nfalse", "false\ntrue"],
+    "correct": 2,
+    "explanation": "The || (OR) operator returns true if AT LEAST ONE operand is true. Since sunny is true, sunny || warm is true. The && (AND) operator returns true only if BOTH are true. Since warm is false, sunny && warm is false.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u3q7",
+    "question": "According to De Morgan's Laws, which expression is equivalent to `!(a && b)`?",
+    "options": ["!a && !b", "!a || !b", "a || b", "!(a || b)"],
+    "correct": 1,
+    "explanation": "De Morgan's Laws tell us how to distribute NOT over AND/OR. When you negate an AND, it becomes OR with each part negated: !(a && b) is the same as !a || !b. Similarly, !(a || b) becomes !a && !b. Think of it as: NOT flips BOTH the operator AND each operand.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u3q8",
+    "question": "What is the output of the following code?\n```java\nString s1 = new String(\"hello\");\nString s2 = new String(\"hello\");\nSystem.out.println(s1 == s2);\nSystem.out.println(s1.equals(s2));\n```",
+    "options": ["true\ntrue", "false\nfalse", "false\ntrue", "true\nfalse"],
+    "correct": 2,
+    "explanation": "When you use `new String()`, Java creates a brand new object in memory. The == operator compares memory addresses (are they the same object?), so s1 == s2 is false — they're different objects. The .equals() method compares content (do they contain the same text?), so s1.equals(s2) is true. ALWAYS use .equals() to compare Strings!",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u3q9",
+    "question": "What is the output of the following code?\n```java\nint x = 5;\nif (x > 3) {\n    if (x > 10) {\n        System.out.println(\"big\");\n    } else {\n        System.out.println(\"medium\");\n    }\n} else {\n    System.out.println(\"small\");\n}\n```",
+    "options": ["big", "medium", "small", "big\nmedium"],
+    "correct": 1,
+    "explanation": "This uses nested conditionals. First, x > 3 is true (5 > 3), so we enter the outer if. Inside, x > 10 is false (5 is not > 10), so we go to the inner else and print \"medium\". The outer else (\"small\") is never reached because the outer if was true.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u3q10",
+    "question": "What is the output of the following code?\n```java\nint a = 0;\nif (a != 0 && (10 / a) > 1) {\n    System.out.println(\"yes\");\n} else {\n    System.out.println(\"no\");\n}\n```",
+    "options": ["yes", "no", "ArithmeticException", "Error"],
+    "correct": 1,
+    "explanation": "This demonstrates short-circuit evaluation. The && operator evaluates left to right and STOPS as soon as it finds a false. Since a != 0 is false, Java never evaluates (10 / a) > 1 — so the division by zero never happens! Without short-circuiting, this would crash. The else runs and prints \"no\".",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u3q11",
+    "question": "What is the output of the following code?\n```java\nint temp = 75;\nboolean raining = true;\nif (temp > 80 && !raining) {\n    System.out.println(\"Beach day!\");\n} else if (temp > 60 || !raining) {\n    System.out.println(\"Park day!\");\n} else {\n    System.out.println(\"Stay inside\");\n}\n```",
+    "options": ["Beach day!", "Park day!", "Stay inside", "Beach day!\nPark day!"],
+    "correct": 1,
+    "explanation": "First condition: temp > 80 && !raining → 75 > 80 is false. Since && needs both to be true, it's false (short-circuits). Second condition: temp > 60 || !raining → 75 > 60 is true. Since || only needs one to be true, it's true (short-circuits, doesn't check !raining). So \"Park day!\" prints.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u3q12",
+    "question": "What is the output of the following code?\n```java\nint grade = 72;\nString result;\nif (grade >= 90)\n    result = \"A\";\nelse if (grade >= 80)\n    result = \"B\";\nelse if (grade >= 70)\n    result = \"C\";\nelse if (grade >= 60)\n    result = \"D\";\nelse\n    result = \"F\";\nSystem.out.println(result);\nSystem.out.println(grade >= 60);\n```",
+    "options": ["C\ntrue", "C\nfalse", "D\ntrue", "C\nD"],
+    "correct": 0,
+    "explanation": "The if-else-if chain stops at the first true condition. 72 >= 90? No. 72 >= 80? No. 72 >= 70? Yes! So result is \"C\" and the chain stops — it never checks >= 60. The second println is an independent statement: 72 >= 60 is true.",
+    "difficulty": "hard"
+  },
+  {
+    "id": "u3q13",
+    "question": "Which of the following is equivalent to `!(x >= 5 && x <= 10)`?",
+    "options": [
+      "x >= 5 || x <= 10",
+      "x < 5 && x > 10",
+      "x < 5 || x > 10",
+      "!(x >= 5) && !(x <= 10)"
+    ],
+    "correct": 2,
+    "explanation": "Using De Morgan's Law: !(A && B) = !A || !B. So !(x >= 5 && x <= 10) becomes !(x >= 5) || !(x <= 10), which simplifies to x < 5 || x > 10. This makes intuitive sense too: \"NOT between 5 and 10\" means \"less than 5 OR greater than 10\".",
+    "difficulty": "hard"
+  },
+  {
+    "id": "u3q14",
+    "question": "What is the output of the following code?\n```java\nint x = 3;\nint y = 4;\nint z = 5;\nboolean result = (x * x + y * y == z * z) && (x + y > z);\nSystem.out.println(result);\n```",
+    "options": ["true", "false", "Error", "25"],
+    "correct": 0,
+    "explanation": "Breaking it down: x*x + y*y = 9 + 16 = 25. z*z = 25. So 25 == 25 is true (it's a 3-4-5 right triangle!). Then x + y > z → 3 + 4 > 5 → 7 > 5 is true. true && true = true. Both conditions of && are satisfied.",
+    "difficulty": "hard"
+  },
+  {
+    "id": "u3q15",
+    "question": "What is the output of the following code?\n```java\nString name = null;\nif (name != null && name.length() > 0) {\n    System.out.println(\"Valid: \" + name);\n} else {\n    System.out.println(\"Invalid\");\n}\n```",
+    "options": ["Valid: null", "NullPointerException", "Invalid", "Error at compile time"],
+    "correct": 2,
+    "explanation": "This is a classic safe null-check pattern using short-circuit evaluation. The && operator evaluates left to right. name != null is false (name IS null), so Java short-circuits and NEVER evaluates name.length() — avoiding the NullPointerException. The else block runs, printing \"Invalid\". Always check for null BEFORE calling methods!",
+    "difficulty": "hard"
+  }
+]

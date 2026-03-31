@@ -1,0 +1,72 @@
+[
+  {
+    "id": "u2e1",
+    "title": "String Reversal Checker",
+    "description": "Write a program that checks if a given word is the same when reversed (a palindrome).\n\nGiven `word = \"racecar\"`, build the reversed version of the word using String methods, then check if the original and reversed versions are equal.\n\nPrint the reversed word on the first line, then print `true` or `false` on the second line.\n\n**Rules:** Use a loop with `charAt()` or `substring()` to reverse the string. Do NOT use StringBuilder.",
+    "starterCode": "public class Main {\n    public static void main(String[] args) {\n        String word = \"racecar\";\n        String reversed = \"\";\n        // Your code here — build the reversed string\n\n        System.out.println(reversed);\n        System.out.println(word.equals(reversed));\n    }\n}",
+    "expectedOutput": "racecar\ntrue",
+    "hints": [
+      "You can get individual characters using word.substring(i, i + 1)",
+      "To reverse, start from the last index and work backward, adding each character to a new String",
+      "The last character is at index word.length() - 1. Use a for loop going from the end to 0."
+    ],
+    "solution": "public class Main {\n    public static void main(String[] args) {\n        String word = \"racecar\";\n        String reversed = \"\";\n        for (int i = word.length() - 1; i >= 0; i--) {\n            reversed += word.substring(i, i + 1);\n        }\n        System.out.println(reversed);\n        System.out.println(word.equals(reversed));\n    }\n}",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u2e2",
+    "title": "Word Counter",
+    "description": "Write a program that counts the number of words in a sentence.\n\nGiven `sentence = \"AP Computer Science A is awesome\"`, count how many words are in the sentence and print the count.\n\n**Hint:** Words are separated by spaces. Think about the relationship between the number of spaces and the number of words.\n\nDo NOT use `split()` — use `indexOf()` and a loop instead!",
+    "starterCode": "public class Main {\n    public static void main(String[] args) {\n        String sentence = \"AP Computer Science A is awesome\";\n        // Your code here\n    }\n}",
+    "expectedOutput": "6",
+    "hints": [
+      "The number of words is always one more than the number of spaces",
+      "You can loop through the string and count how many spaces you find",
+      "Use sentence.substring(i, i + 1).equals(\" \") to check for spaces"
+    ],
+    "solution": "public class Main {\n    public static void main(String[] args) {\n        String sentence = \"AP Computer Science A is awesome\";\n        int spaces = 0;\n        for (int i = 0; i < sentence.length(); i++) {\n            if (sentence.substring(i, i + 1).equals(\" \")) {\n                spaces++;\n            }\n        }\n        int words = spaces + 1;\n        System.out.println(words);\n    }\n}",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u2e3",
+    "title": "Password Validator",
+    "description": "Write a program that checks if a password meets these requirements:\n1. At least 8 characters long\n2. Contains at least one digit (0–9)\n\nGiven `password = \"secure2024\"`, print:\n- Line 1: The length of the password\n- Line 2: `true` if it has at least one digit, `false` otherwise\n- Line 3: `true` if BOTH conditions are met, `false` otherwise\n\n**Hint:** Loop through each character and check if it's a digit using `compareTo()`. Digits '0' through '9' are characters too!",
+    "starterCode": "public class Main {\n    public static void main(String[] args) {\n        String password = \"secure2024\";\n        // Your code here\n    }\n}",
+    "expectedOutput": "10\ntrue\ntrue",
+    "hints": [
+      "Use password.length() to check the length requirement",
+      "Loop through each character using substring(i, i + 1) and compare with \"0\" through \"9\"",
+      "A character c is a digit if c.compareTo(\"0\") >= 0 && c.compareTo(\"9\") <= 0"
+    ],
+    "solution": "public class Main {\n    public static void main(String[] args) {\n        String password = \"secure2024\";\n        int len = password.length();\n        boolean hasDigit = false;\n        for (int i = 0; i < len; i++) {\n            String ch = password.substring(i, i + 1);\n            if (ch.compareTo(\"0\") >= 0 && ch.compareTo(\"9\") <= 0) {\n                hasDigit = true;\n            }\n        }\n        boolean isValid = len >= 8 && hasDigit;\n        System.out.println(len);\n        System.out.println(hasDigit);\n        System.out.println(isValid);\n    }\n}",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u2e4",
+    "title": "Random Dice Game",
+    "description": "Write a program that simulates rolling two dice using `Math.random()`.\n\nFor this exercise, we'll use a fixed seed approach so the output is predictable. Instead of actually calling `Math.random()`, use the pre-set values below.\n\nGiven `die1 = 4` and `die2 = 6`:\n1. Print each die value\n2. Print the sum\n3. Print whether the roll is \"doubles\" (both dice are the same)\n4. Print whether the sum is 7 or 11 (a \"natural\" in craps)\n\nAlso show the Math.random() expression you WOULD use to generate a die roll (as a comment).",
+    "starterCode": "public class Main {\n    public static void main(String[] args) {\n        // In real code you'd use: (int)(Math.random() * 6) + 1\n        int die1 = 4;\n        int die2 = 6;\n        // Your code here\n    }\n}",
+    "expectedOutput": "Die 1: 4\nDie 2: 6\nSum: 10\nDoubles: false\nNatural: false",
+    "hints": [
+      "The sum is just die1 + die2",
+      "Doubles means die1 == die2 (use == for primitive comparison)",
+      "A natural means sum == 7 || sum == 11"
+    ],
+    "solution": "public class Main {\n    public static void main(String[] args) {\n        int die1 = 4;\n        int die2 = 6;\n        int sum = die1 + die2;\n        boolean isDoubles = (die1 == die2);\n        boolean isNatural = (sum == 7 || sum == 11);\n        System.out.println(\"Die 1: \" + die1);\n        System.out.println(\"Die 2: \" + die2);\n        System.out.println(\"Sum: \" + sum);\n        System.out.println(\"Doubles: \" + isDoubles);\n        System.out.println(\"Natural: \" + isNatural);\n    }\n}",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u2e5",
+    "title": "Initials Extractor",
+    "description": "Write a program that extracts the initials from a full name and prints them in uppercase.\n\nGiven `fullName = \"alan mathison turing\"`, extract the first letter of each word and print the initials as one uppercase string.\n\nExpected output: `AMT`\n\n**Challenge:** Handle this using `indexOf()` and `substring()` — do NOT use `split()`. Think about where each word starts: at the beginning and right after each space.",
+    "starterCode": "public class Main {\n    public static void main(String[] args) {\n        String fullName = \"alan mathison turing\";\n        String initials = \"\";\n        // Your code here\n\n        System.out.println(initials);\n    }\n}",
+    "expectedOutput": "AMT",
+    "hints": [
+      "The first initial is always at index 0",
+      "Every other initial comes right after a space — find each space with indexOf()",
+      "Use toUpperCase() on the final result to capitalize all initials"
+    ],
+    "solution": "public class Main {\n    public static void main(String[] args) {\n        String fullName = \"alan mathison turing\";\n        String initials = \"\";\n        initials += fullName.substring(0, 1);\n        for (int i = 0; i < fullName.length(); i++) {\n            if (fullName.substring(i, i + 1).equals(\" \")) {\n                initials += fullName.substring(i + 1, i + 2);\n            }\n        }\n        initials = initials.toUpperCase();\n        System.out.println(initials);\n    }\n}",
+    "difficulty": "hard"
+  }
+]

@@ -1,0 +1,142 @@
+[
+  {
+    "id": "u6q1",
+    "question": "Which of the following correctly declares and creates an array of 5 integers?",
+    "options": [
+      "int[] nums = new int[5];",
+      "int nums[5] = new int[];",
+      "int[] nums = new int(5);",
+      "Array<int> nums = new Array(5);"
+    ],
+    "correct": 0,
+    "explanation": "In Java, you declare an array with `type[] name = new type[size];`. The brackets go after the type, and the size goes in brackets after `new int`. The other options have incorrect syntax.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u6q2",
+    "question": "What is the index of the LAST element in an array of length 10?",
+    "options": ["10", "9", "11", "0"],
+    "correct": 1,
+    "explanation": "Arrays in Java are zero-indexed, meaning the first element is at index 0. So an array of length 10 has indices 0 through 9. The last element is at index `array.length - 1`, which is 9.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u6q3",
+    "question": "What are the default values of elements in a newly created `int` array?",
+    "options": ["null", "undefined", "0", "-1"],
+    "correct": 2,
+    "explanation": "When you create an int array with `new int[size]`, Java automatically fills every element with 0. For doubles it's 0.0, for booleans it's false, and for object references (like String) it's null.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u6q4",
+    "question": "What is the output of the following code?\n```java\nint[] nums = {10, 20, 30, 40, 50};\nSystem.out.println(nums[2]);\n```",
+    "options": ["20", "30", "10", "Error"],
+    "correct": 1,
+    "explanation": "Array indices start at 0: nums[0] is 10, nums[1] is 20, nums[2] is 30. So `nums[2]` is 30. Remember, the index number is NOT the same as the position you'd count to naturally.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u6q5",
+    "question": "What does `nums.length` return if `int[] nums = new int[7];`?",
+    "options": ["6", "7", "8", "0"],
+    "correct": 1,
+    "explanation": "The `.length` property of an array returns the total number of elements it can hold. An array created with `new int[7]` has length 7. Note: `.length` is a property (no parentheses), unlike `.length()` for Strings which is a method.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "u6q6",
+    "question": "What is the output of the following code?\n```java\nint[] arr = {5, 12, 8, 3, 17};\nint max = arr[0];\nfor (int i = 1; i < arr.length; i++) {\n    if (arr[i] > max) {\n        max = arr[i];\n    }\n}\nSystem.out.println(max);\n```",
+    "options": ["5", "17", "8", "12"],
+    "correct": 1,
+    "explanation": "This is the standard find-maximum algorithm. It starts by assuming the first element (5) is the max. Then it checks each remaining element: 12 > 5 → max = 12, 8 < 12 → skip, 3 < 12 → skip, 17 > 12 → max = 17. Final answer: 17.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u6q7",
+    "question": "What happens when you run this code?\n```java\nint[] data = {1, 2, 3};\nSystem.out.println(data[3]);\n```",
+    "options": [
+      "Prints 3",
+      "Prints 0",
+      "Throws ArrayIndexOutOfBoundsException",
+      "Prints null"
+    ],
+    "correct": 2,
+    "explanation": "The array has 3 elements at indices 0, 1, and 2. Index 3 is out of bounds. Java throws an ArrayIndexOutOfBoundsException at runtime. This is one of the most common array bugs — always remember the last valid index is length - 1.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u6q8",
+    "question": "What is the output of the following code?\n```java\nint[] nums = {2, 4, 6, 8, 10};\nint sum = 0;\nfor (int val : nums) {\n    sum += val;\n}\nSystem.out.println(sum);\n```",
+    "options": ["30", "20", "10", "Error"],
+    "correct": 0,
+    "explanation": "The enhanced for loop (for-each) iterates through every element: 2 + 4 + 6 + 8 + 10 = 30. The variable `val` takes on each element's value in order. This loop style is cleaner when you don't need the index.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u6q9",
+    "question": "Which of the following correctly passes an array to a method?",
+    "options": [
+      "printArray(int[] arr);",
+      "printArray(nums[]);",
+      "printArray(nums);",
+      "printArray(new nums);"
+    ],
+    "correct": 2,
+    "explanation": "When passing an array to a method, you just pass the variable name — no brackets needed. The method declaration uses `int[] arr` to specify it accepts an array, but the call just uses the array name: `printArray(nums);`.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u6q10",
+    "question": "What is the output of the following code?\n```java\nint[] a = {1, 2, 3};\nint[] b = a;\nb[0] = 99;\nSystem.out.println(a[0]);\n```",
+    "options": ["1", "99", "Error", "0"],
+    "correct": 1,
+    "explanation": "Arrays are reference types! When you write `int[] b = a;`, b and a point to the SAME array in memory. Changing b[0] also changes a[0] because there's only one array. This is different from primitive variables where values are copied. It's like two shortcuts to the same file on your computer.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u6q11",
+    "question": "What is the output of the following code?\n```java\nint[] arr = {3, 7, 2, 8, 1};\nfor (int x : arr) {\n    x = x * 2;\n}\nSystem.out.println(arr[1]);\n```",
+    "options": ["14", "7", "0", "Error"],
+    "correct": 1,
+    "explanation": "This is a common trap! In an enhanced for loop, the variable `x` is a COPY of each element. Changing `x` does NOT change the original array. After the loop, arr[1] is still 7. To modify array elements, you must use a regular for loop with indices: `arr[i] = arr[i] * 2;`.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "u6q12",
+    "question": "What is the output of the following code?\n```java\nint[] arr = {10, 20, 30, 40, 50};\nfor (int i = arr.length - 1; i > 0; i--) {\n    arr[i] = arr[i - 1];\n}\narr[0] = 0;\nfor (int val : arr) {\n    System.out.print(val + \" \");\n}\n```",
+    "options": [
+      "0 10 20 30 40 ",
+      "0 10 20 30 50 ",
+      "50 40 30 20 10 ",
+      "0 20 30 40 50 "
+    ],
+    "correct": 0,
+    "explanation": "This code shifts all elements to the right by one position, starting from the end. arr[4] = arr[3] = 40, arr[3] = arr[2] = 30, arr[2] = arr[1] = 20, arr[1] = arr[0] = 10. Then arr[0] is set to 0. Result: {0, 10, 20, 30, 40}. Starting from the end avoids overwriting values before they're copied.",
+    "difficulty": "hard"
+  },
+  {
+    "id": "u6q13",
+    "question": "What does the following method return when called with `{4, 2, 7, 2, 9, 2}`?\n```java\npublic static int mystery(int[] arr, int target) {\n    int count = 0;\n    for (int val : arr) {\n        if (val == target) {\n            count++;\n        }\n    }\n    return count;\n}\n// Called as: mystery(arr, 2)\n```",
+    "options": ["1", "2", "3", "4"],
+    "correct": 2,
+    "explanation": "The method counts how many times `target` appears in the array. The value 2 appears at indices 1, 3, and 5 — that's 3 occurrences. This is a standard counting algorithm: loop through the array and increment a counter each time you find a match.",
+    "difficulty": "hard"
+  },
+  {
+    "id": "u6q14",
+    "question": "What is the output of the following code?\n```java\npublic static int[] doubleAll(int[] arr) {\n    int[] result = new int[arr.length];\n    for (int i = 0; i < arr.length; i++) {\n        result[i] = arr[i] * 2;\n    }\n    return result;\n}\n// In main:\nint[] nums = {1, 2, 3};\nint[] doubled = doubleAll(nums);\nSystem.out.println(nums[0] + \" \" + doubled[0]);\n```",
+    "options": ["2 2", "1 2", "1 1", "Error"],
+    "correct": 1,
+    "explanation": "The method creates a NEW array and fills it with doubled values. The original array `nums` is not modified because the method doesn't change it — it builds a separate array. So nums[0] is still 1, and doubled[0] is 2.",
+    "difficulty": "hard"
+  },
+  {
+    "id": "u6q15",
+    "question": "What does the following code print?\n```java\nint[] arr = {5, 3, 8, 1, 4};\nint minIndex = 0;\nfor (int i = 1; i < arr.length; i++) {\n    if (arr[i] < arr[minIndex]) {\n        minIndex = i;\n    }\n}\nint temp = arr[0];\narr[0] = arr[minIndex];\narr[minIndex] = temp;\nSystem.out.println(arr[0] + \" \" + arr[3]);\n```",
+    "options": ["1 5", "5 1", "1 1", "5 5"],
+    "correct": 0,
+    "explanation": "First, the loop finds the index of the minimum value. It checks: 3 < 5 → minIndex = 1, 8 > 3 → skip, 1 < 3 → minIndex = 3, 4 > 1 → skip. So minIndex = 3. Then it swaps arr[0] and arr[3]: arr becomes {1, 3, 8, 5, 4}. arr[0] is 1, arr[3] is 5. This is the first step of selection sort!",
+    "difficulty": "hard"
+  }
+]
